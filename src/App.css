@@ -1,0 +1,10 @@
+:root {
+  --corPrincipal: #fcf5f9
+} /* root é raiz, estou acessando a raiz do css, e pode acessar no codigo tbm */
+
+body{
+  background-color: var(--corPrincipal);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
