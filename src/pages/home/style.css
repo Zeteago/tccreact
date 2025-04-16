@@ -1,0 +1,99 @@
+* {
+    background-color: #fcf5f9;;
+}
+
+.hotbar {
+    display: flex;
+    padding: 5px;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+
+    .botoes {
+        display: flex;
+        flex-direction: row;
+        
+        button{
+            display: flex;
+            background-color: white;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            margin: 10px;
+            cursor: pointer;
+            border: 1px solid grey;
+            height: 30px;
+            align-items: center;
+            padding: 10px;
+
+            .foodImg {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    & .botoes button:hover {
+        opacity: 0.8;
+    }
+
+    .input-container {
+
+        position: relative;
+        display: inline-block;
+
+        input {
+            background-color: #ffffff;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            margin-right: 10px;
+            height: 30px;
+            padding-right: 30px;
+            padding-left: 40px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none; /* Para evitar que o ícone interfira no clique */
+            font-size: 16px; /* Ajuste o tamanho do ícone */
+            background-color: #ffffff;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding-right: 15px;
+            color: grey;
+        }
+
+        button {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ffffff;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding-right: 5px;
+            border: none;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            transition: color 0.3s; /*transição suave para o hover*/
+            display: flex;
+            align-items: center;
+
+            .menu-icon {
+                color: grey;
+                font-size: 20px; /* Tamanho do ícone */
+                background-color: #ffffff;
+            }
+        }
+
+        button:hover {
+            opacity: 0.6;
+        }
+    }
+}
