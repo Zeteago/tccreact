@@ -20,15 +20,13 @@ function Home() {
             </button>
           </div>
           <div className='input-container'>
-            <span>
-              <button>
-                <MenuIcon className="menu-icon" />
-              </button>
-            </span>
-            <input placeholder="Buscar" name='caixaPesquisa' type='text'></input>
-            <span>
+            <button>
+              <MenuIcon className="menu-icon" />
+            </button>
+            <input placeholder="Buscar" name='caixaPesquisa' type='text'/>
+            <button disabled>
               <SearchIcon className="search-icon" />
-            </span>
+            </button>
           </div>
         </div>
       </>      
