@@ -5,13 +5,23 @@
     background-color: #fcf5f9;
 }
 
+.Tudo {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    height: 100vh;
+}
+
+.menu-esquerdo, .menu-direito {
+    background-color: #ffffff;
+    height: 100%;
+}
+
 .hotbar {
     display: grid;
     padding: 5px;
     margin: 0;
     align-items: center;
     grid-template-columns: repeat(3, 1fr); /* 3 colunas com frações iguais*/
-    
 
     .botoes {
         display: flex;
@@ -28,6 +38,7 @@
             height: 30px;
             align-items: center;
             padding: 10px;
+            border: 1px solid black;
 
             .foodImg {
                 width: 20px;
@@ -47,9 +58,62 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: #ffffff;
+        border-radius: 15px;
+        height: 30px;
 
-        button, SearchIcon {
+        .button-input {
+            display: flex;
+            min-width: 90%;
+            background-color: #ffffff;
+            border-radius: 15px;
+            min-height: 100%;
+            align-items: center;
+        }
+
+        button {
             z-index: 99;
+            border: none;
+            color: grey;
+            background-color: #ffffff;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .menu-icon, .search-icon {
+                background-color: #ffffff;
+                width: 20px;
+            }
+
+            menu {
+                border-radius: 15px;
+            }
+
+            .menu-icon {
+                margin-left: 10px;
+                border-radius: 10px;
+            }
+
+            .menu-icon:hover {
+                opacity: 0.6;
+            }
+
+            .search-icon {
+                margin-right: 10px;
+                border-radius: 10px;
+            }
+        }
+
+        input {
+            border: none;
+            background-color: #ffffff;
+            min-width: 80%;
+            outline: none;
+            border-radius: 0px, 15px;
+            min-height: 100%;
+            margin-left: 15px;
         }
 
     }

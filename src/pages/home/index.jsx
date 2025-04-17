@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Food from '../../assets/icones/food.png'
@@ -6,8 +7,20 @@ import './style.css'
 
 function Home() {
 
+  const inputBusca = useRef(null)
+
+  function ativaBusca() {
+    if (inputBusca.current) {
+      inputBusca.current.focus()
+    }
+  }
+
     return (
       <>
+      <div className='Tudo'>
+
+      <div className='menu-esquerdo'>ola</div>
+      <div className='conteudo'>
         <div className='hotbar'>
           <div className='botoes'>
             <button>
@@ -20,15 +33,21 @@ function Home() {
             </button>
           </div>
           <div className='input-container'>
-            <button>
-              <MenuIcon className="menu-icon" />
-            </button>
-            <input placeholder="Buscar" name='caixaPesquisa' type='text'/>
-            <button disabled>
+            <div className='button-input'>
+              <button className='menu'>
+                <MenuIcon className="menu-icon" />
+              </button>
+              <input placeholder="Buscar" name='caixaPesquisa' type='text' ref={inputBusca}/>
+            </div>
+            <button className='search' onClick={ativaBusca}>
               <SearchIcon className="search-icon" />
             </button>
           </div>
         </div>
+      </div>
+      <div className='menu-direito'>ola</div>
+
+      </div>
       </>      
     )
   }
