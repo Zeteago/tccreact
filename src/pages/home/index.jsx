@@ -1,9 +1,13 @@
 import { useRef } from 'react'
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu'
+import SearchIcon from '@mui/icons-material/Search'
 import Food from '../../assets/icones/food.png'
 import Commerce from '../../assets/icones/commerce.png'
 import './style.css'
+import Button from '@mui/material/Button';
+
+import AbaEsquerda from '../../components/abaEsquerda'
+import AbaDireita from '../../components/abaDireita'
 
 function Home() {
 
@@ -19,18 +23,20 @@ function Home() {
       <>
       <div className='Tudo'>
 
-      <div className='menu-esquerdo'>ola</div>
+      <div className='menu-esquerdo'>
+        <AbaEsquerda />
+      </div>
       <div className='conteudo'>
         <div className='hotbar'>
           <div className='botoes'>
-            <button>
+            <Button className='button' variant="contained">
               <img className='foodImg' src={Food} draggable='false'/>
               Food
-            </button>
-            <button>
+            </Button>
+            <Button className='button' variant="contained">
             <img className='foodImg' src={Commerce} draggable='false'/>
               Commerce
-            </button>
+            </Button>
           </div>
           <div className='input-container'>
             <div className='button-input'>
@@ -45,8 +51,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='menu-direito'>ola</div>
-
+      <div className='menu-direito'>
+        <AbaDireita />
+      </div>
       </div>
       </>      
     )

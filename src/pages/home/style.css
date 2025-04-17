@@ -1,14 +1,13 @@
 * {
-    margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
-    background-color: #fcf9f5;
+    margin: 0;
 }
 
 .Tudo {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     height: 100vh;
+    background-color: #fcf9f5;
 }
 
 .menu-esquerdo, .menu-direito {
@@ -27,10 +26,10 @@
         display: flex;
         flex-direction: row;
         
-        button{
+        .button{
             display: flex;
-            background-color: white;
-            border-radius: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
             font-family: 'Quicksand', sans-serif;
             font-weight: 600;
             margin: 10px;
@@ -38,7 +37,8 @@
             height: 30px;
             align-items: center;
             padding: 10px;
-            border: 1px solid black;
+            border: none;
+            color: black;
 
             .foodImg {
                 width: 20px;
