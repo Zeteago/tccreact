@@ -33,3 +33,115 @@
         }
     }
 }
+
+.custom-popover .MuiPaper-root {
+    border-radius: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-carrinho {
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: black;
+    border-radius: 20px;
+
+    .topo {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        border-bottom: 1px solid rgb(212, 211, 211);
+        padding: 0px 0px 10px 0px;
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+            color: grey;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .loja {
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border:1px groove rgb(212, 211, 211);
+        margin: 10px 0px 0px 0px;
+
+        .icone-conteudo {
+            display: flex;
+            width: 100%;
+
+            .conteudo {
+                width: 100%;
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+                padding: 0px 5px;
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    padding: 0;
+
+                    p {
+                        font-weight: 500;
+                    }
+
+                    h6 {
+                        color: grey;
+                    }
+                }
+
+                button {
+                    background-color: #fff;
+                    border: none;
+                    color: rgb(89, 89, 89);
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 5px;
+            margin: 0;
+        }
+    }
+
+    .baixo {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 10px;
+
+        button {
+            background-color: #fff;
+            border: 1px solid rgb(212, 211, 211);
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 8px;
+            font-size: 12px;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}

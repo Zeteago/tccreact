@@ -2,9 +2,12 @@ import './abaDireitaStyle.css'
 import Carrinho from '../assets/icones/carrinho.png'
 import Perfil from '../assets/icones/perfil.png'
 import Config from '../assets/icones/configurações.png'
+import Fundo from '../assets/app/fundo.jpg'
 
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import { useState } from 'react'
 
@@ -36,7 +39,7 @@ function AbaDireita() {
                     anchorEl={popupEstado}
                     onClose={fecharPopup}
                     anchorReference="anchorPosition"
-                    anchorPosition={{ top: 0, left: 1350 }}
+                    anchorPosition={{ top: 0, left: 1250 }}
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'left',
@@ -45,8 +48,36 @@ function AbaDireita() {
                         vertical: 'center',
                         horizontal: 'left',
                     }}
-                >
-                    <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+                    className="custom-popover"
+                    >
+                    <Typography component="div" sx={{ p: 2 }}>
+                    <div className='popup-carrinho'>    
+                        <div className='topo'>
+                            <p>Carrinho</p>
+                            <button>
+                                <CloseIcon />
+                            </button>
+                        </div>
+                        <div className='loja'>
+                            <div className='icone-conteudo'>
+                                <img src={Fundo}/>
+                                <div className='conteudo'>
+                                    <div className='info'>
+                                        <p>NOME Loja Store</p>
+                                        <h6>Estrela 5.0 | Hora de funcionamento</h6>
+                                    </div>
+                                    <button>
+                                        <MoreHorizIcon />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='baixo'>
+                            <p>Total: R$190,80</p>
+                            <button>Finalizar Compra</button>
+                        </div>
+                    </div>
+                    </Typography>
                 </Popover>
 
                 <button>
