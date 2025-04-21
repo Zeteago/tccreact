@@ -1,0 +1,136 @@
+.tudo-cp {
+    background-color: #fcf9f5;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .Banner {
+        position: relative;
+        width: 95%;
+        height: 300px;
+        background-image: url('../assets/app/fundo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+        padding-left: 30px;
+        padding-bottom: 30px;
+
+        z-index: 1;
+
+        .titulo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 35px;
+            color: #fff;
+        }
+
+        .sub-titulo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16 px;
+            color: #fff;
+            margin: 0px 0px 10px 0px;
+        }
+
+        .botoes {
+            display: flex;
+
+            button {
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                color: black;
+                background-color: #fff;
+                font-size: 16px;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+
+                .texto {
+                    padding: 0px 10px;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:active {
+                    opacity: 0.6;
+                    transform: scale(0.95);
+                }
+            }
+
+            .distancia {
+                margin-left: 10px;
+            }
+        }
+        
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%; /* Altura da sombra */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradiente */
+            border-radius: 30px; /* Mesmo border-radius da div */
+            pointer-events: none; /* Garante que o pseudo-elemento não interfira no clique */
+            z-index: -1;
+        }
+    }
+}
+
+
+.Lojas {
+
+    font-family: 'Quicksand', sans-serif;
+    width: 95%;
+    padding-top: 20px;
+    max-width: 95%;
+
+    .texto {
+        display: flex;
+        padding-bottom: 10px;
+
+        p {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    .orgLojas {
+        display: flex;
+        gap: 50px;
+        width: 100%; /* Responsivo: ocupa toda a largura disponível */
+        max-width: 100%; /* Garante que não ultrapasse o tamanho do container */
+        overflow-x: auto; /* Adiciona scroll horizontal quando necessário */
+        white-space: nowrap; /* Impede que os elementos quebrem para a próxima linha */
+        padding-bottom: 10px; /* Opcional: espaço extra para o scroll */
+    }
+
+    .lj {
+        display: flex;
+        flex-direction: column;
+        
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        .Nome {
+            padding-top: 10px;
+
+            font-size: 20px;
+            width: 120px;
+            text-align: center;
+        }
+    }
+}

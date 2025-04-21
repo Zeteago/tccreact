@@ -20,6 +20,10 @@ body {
     height: 100%;
 }
 
+.menu-esquerdo {
+    padding-right: 2px;
+}
+
 .hotbar {
     display: grid;
     padding: 5px;
@@ -124,4 +128,10 @@ body {
 
     }
 
+}
+
+.conteudo {
+    height: 100%; /* Garante que a altura seja fixa */
+    overflow-y: auto; /* Adiciona scroll vertical se o conteúdo ultrapassar o limite */
+    overflow-x: hidden; /* Remove o scroll horizontal */
 }

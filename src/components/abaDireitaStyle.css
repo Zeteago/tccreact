@@ -75,12 +75,20 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        border:1px groove rgb(212, 211, 211);
+        border:1px solid rgb(212, 211, 211);
         margin: 10px 0px 0px 0px;
 
         .icone-conteudo {
             display: flex;
             width: 100%;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                padding: 10px;
+                margin: 0;
+            }
 
             .conteudo {
                 width: 100%;
@@ -114,16 +122,58 @@
                         opacity: 0.6;
                     }
                 }
+
+                .tres-pontos {
+                    padding-top: 5px;
+                    height: 100%;
+                }
             }
         }
 
-        img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            padding: 5px;
-            margin: 0;
+        .produto-conteudo {
+            display: flex;
+            width: 100%;
+            border-top: 1px solid rgb(212, 211, 211);
+            padding: 5px 0px 5px 0px;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                padding: 5px;
+                margin: 0;
+            }
+
+            .conteudo {
+                width: 100%;
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+                padding: 0px 5px;
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    padding: 0;
+
+                    p {
+                        font-weight: 500;
+                    }
+
+                    h6 {
+                        color: grey;
+                    }
+                }
+
+                .preco {
+                    font-size: 14px;
+                    height: 100%;
+                    font-weight: 500;
+                }
+            }
         }
+
     }
 
     .baixo {

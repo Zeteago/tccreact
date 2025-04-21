@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 
 import AbaEsquerda from '../../components/abaEsquerda'
 import AbaDireita from '../../components/abaDireita'
+import ConteudoPrincipal from '../../components/conteudoPrincipal'
 
 function Home() {
 
@@ -50,6 +51,7 @@ function Home() {
             </button>
           </div>
         </div>
+        <ConteudoPrincipal />
       </div>
       <div className='menu-direito'>
         <AbaDireita />

@@ -60,15 +60,30 @@ function AbaDireita() {
                         </div>
                         <div className='loja'>
                             <div className='icone-conteudo'>
-                                <img src={Fundo}/>
+                                <img src={Fundo} draggable='false'/>
                                 <div className='conteudo'>
                                     <div className='info'>
                                         <p>NOME Loja Store</p>
                                         <h6>Estrela 5.0 | Hora de funcionamento</h6>
                                     </div>
-                                    <button>
-                                        <MoreHorizIcon />
-                                    </button>
+                                    <div className='tres-pontos'>
+                                        <button>
+                                            <MoreHorizIcon />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='produto-conteudo'>
+                                <img src={Fundo} draggable='false'/>
+                                <div className='conteudo'>
+                                    <div className='info'>
+                                        <h6>Produto</h6>
+                                        <p>NOME Loja Store</p>
+                                        <h6>Adicionais: N/A | Quantidade: 3</h6>
+                                    </div>
+                                    <p className='preco'>
+                                        R$98,80
+                                    </p>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,5 @@
 .tudo {
-    display: flex;
     border-right: 1px solid grey;
-    min-height: 100%;
     background-color: #ffffff;
 }
 
