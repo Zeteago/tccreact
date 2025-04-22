@@ -1,6 +1,8 @@
-.tudo {
+.tudo-seg {
     border-right: 1px solid grey;
     background-color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    height: 100%;
 }
 
 .title-button {
@@ -22,16 +24,30 @@
         align-items: center;
         justify-content: center;
     }
+    
+}
 
-    .button-icon {
-        border: none;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        background-color: #ffffff;
+.tudo-ativado {
+    background-color: #fcf9f5;
+    height: 100%;
+    border-right: 1px solid #ffffff;
+}
 
-        &:hover {
-            opacity: 0.5;
-        }
+.button-icon {
+    border: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.5;
     }
+}
+
+#ativado {
+    background-color: #fcf9f5;
+}
+
+#desativado {
+    background-color: #ffffff;
 }

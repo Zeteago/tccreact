@@ -8,14 +8,21 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function ConteudoPrincipal() {
 
-    let lojas = ['loja1', 'loja2', 'loja3', 'loja4', 'loja5', 'loja6',
-        'loja7', 'loja8', 'loja9', 'loja10', 'loja11', 'loja12', 'loja13',
-        'loja14', 'loja15', 'loja16'
-    ]
+    let lojas = []
+
+    for (var cont = 1; cont < 21; cont++) {
+        lojas.push(`Loja ${cont}`)
+    }
+
+    let produtos = []
+
+    for (var cont = 1; cont < 21; cont++) {
+        produtos.push(`Produto ${cont}`)
+    }
 
     return (
         <>
-        <div className="tudo-cp">
+        <div className="tudo-cp" >
             <div className="Banner">
                 <p className='titulo'>TITULO</p>
                 <p className='sub-titulo'>Subtitulo</p>
@@ -31,20 +38,62 @@ function ConteudoPrincipal() {
                 </div>
             </div>
 
-            <div className='Lojas'>
+            <div className='Listagem'>
                 <div className='texto'>
                     <p>
                         Lojas da AYVU
                     </p>
                     <ArrowForwardIcon />
                 </div>
-                <div className='orgLojas'>
+                <div className='org'>
                     {
                         lojas.map((nomeLoja) => (
-                            <div className='lj' key={nomeLoja}>
-                                <img src={Fundo} draggable='false'/>
+                            <div className='lj' key={nomeLoja} draggable='false'>
+                                <img src={Fundo} draggable='false' className='img-lojas'/>
                                 <p className='Nome'>
                                     {nomeLoja}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div className='Listagem'>
+                <div className='texto'>
+                    <p>
+                        Produtos
+                    </p>
+                    <ArrowForwardIcon />
+                </div>
+                <div className='org'>
+                    {
+                        produtos.map((nomeProduto) => (
+                            <div className='lj' key={nomeProduto} draggable='false'>
+                                <img src={Fundo} draggable='false' className='img-produtos'/>
+                                <p className='Nome'>
+                                    {nomeProduto}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div className='Listagem'>
+                <div className='texto'>
+                    <p>
+                        Produtos
+                    </p>
+                    <ArrowForwardIcon />
+                </div>
+                <div className='org'>
+                    {
+                        produtos.map((nomeProduto) => (
+                            <div className='lj' key={nomeProduto} draggable='false'>
+                                <img src={Fundo} draggable='false' className='img-produtos'/>
+                                <p className='Nome'>
+                                    {nomeProduto}
                                 </p>
                             </div>
                         ))

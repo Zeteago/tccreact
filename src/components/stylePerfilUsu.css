@@ -1,0 +1,19 @@
+.tudo-perfil {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid grey;
+    min-height: 100%;
+}
+
+.voltar {
+    width: 10%;
+    background-color: #fff;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

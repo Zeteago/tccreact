@@ -3,7 +3,8 @@
     min-height: 100vh;
     font-family: 'Quicksand', sans-serif;
     min-width: 100%;
-    border-left: 1px solid grey;
+    border-left: 1px solid #fff;
+    background-color: #fcf9f5;
 
     .buttons {
         display: flex;
@@ -16,7 +17,7 @@
             padding-top: 5px;
             height: 2rem;
             width: 2rem;
-            background-color: #ffffff;
+            background-color: #fcf9f5;
             border: none;
             cursor: pointer;
             display: flex;
@@ -81,6 +82,7 @@
         .icone-conteudo {
             display: flex;
             width: 100%;
+            align-items: center;
 
             img {
                 width: 40px;
@@ -93,7 +95,7 @@
             .conteudo {
                 width: 100%;
                 display: flex;
-                align-items:center;
+                align-items: top;
                 justify-content: space-between;
                 padding: 0px 5px;
 
@@ -124,7 +126,8 @@
                 }
 
                 .tres-pontos {
-                    padding-top: 5px;
+                    display: flex;
+                    align-items: top;
                     height: 100%;
                 }
             }
@@ -147,7 +150,7 @@
             .conteudo {
                 width: 100%;
                 display: flex;
-                align-items:center;
+                align-items: top;
                 justify-content: space-between;
                 padding: 0px 5px;
 
