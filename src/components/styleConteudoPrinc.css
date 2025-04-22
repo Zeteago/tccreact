@@ -146,12 +146,12 @@
             text-align: center;
         }
 
-        /* &:hover {
+        &:hover {
             transform: scale(1.05);
-        } */
+        }
 
         &:active {
-            transform: scale(0.95);
+            opacity: 0.9;
         }
     }
 }

@@ -57,14 +57,14 @@ function AbaDireita() {
                         anchorEl={popupEstado}
                         onClose={fecharPopup}
                         anchorReference="anchorPosition"
-                        anchorPosition={{ top: 0, left: 1250 }}
+                        anchorPosition={{ top: 0, left: 1580 }}
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'left',
                         }}
                         transformOrigin={{
                             vertical: 'center',
-                            horizontal: 'left',
+                            horizontal: 'right',
                         }}
                         className="custom-popover"
                         >
@@ -72,7 +72,7 @@ function AbaDireita() {
                         <div className='popup-carrinho'>    
                             <div className='topo'>
                                 <p>Carrinho</p>
-                                <button>
+                                <button onClick={fecharPopup}>
                                     <CloseIcon />
                                 </button>
                             </div>
