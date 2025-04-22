@@ -17,3 +17,68 @@
         opacity: 0.7;
     }
 }
+
+.Title-perfil {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+.img-perfil-usu {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.onde-fica {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0px;
+}
+
+.inputs-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dentro-input {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid grey;
+    margin-top: 15px;
+    padding: 5px 0px;
+
+    input {
+        width: 75%;
+        height: 30px;
+        padding-left: 15px;
+        border-radius: 10px;
+        border: 1px solid grey;
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+
+    button {
+        border: none;
+        background-color: #ffffff;
+        cursor: pointer;
+        margin-right: 15px;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

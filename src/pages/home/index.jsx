@@ -39,7 +39,7 @@ function Home() {
               Commerce
             </Button>
           </div>
-          <div className='input-container'>
+          <div className='input-container' >
             <div className='button-input'>
               <button className='menu'>
                 <MenuIcon className="menu-icon" />
