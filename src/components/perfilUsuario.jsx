@@ -7,7 +7,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import ImgPadrao from '../assets/app/fundo.jpg'
 
 function PerfilUsuario({ trocarAba }) {
-    const [edicao, setHabilitarEdicao] = useState(false)
     const [classe, setClass] = useState('mostrar')
 
     const [pessoaFake, setPessoaFake] = useState([
@@ -38,6 +37,20 @@ function PerfilUsuario({ trocarAba }) {
 
       setClass('mostrar')
     }
+
+    const phoneMask = (value) => {
+      if (!value) return "";
+      value = value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+      value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Formata o DDD
+      value = value.replace(/(\d)(\d{4})$/, "$1-$2"); // Adiciona o hífen no número
+      return value;
+    };
+  
+    const handleChange = (event) => {
+      const inputValue = event.target.value;
+      const maskedValue = phoneMask(inputValue);
+      setTelefone(maskedValue); // Atualiza o estado com o valor formatado
+    };
 
     return (
       <>
@@ -119,9 +132,10 @@ function PerfilUsuario({ trocarAba }) {
                   <input 
                     placeholder="Telefone" 
                     name='caixaTelefone' 
-                    type='text'
                     value={telefone}
-                    onChange={(e) => setTelefone(e.target.value)} 
+                    type="tel" 
+                    onChange={handleChange} // Manipula as mudanças no input
+                    maxLength="15" // Limita o comprimento máximo
                   />
                   <button>
                     <EditIcon />

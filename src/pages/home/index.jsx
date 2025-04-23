@@ -16,24 +16,35 @@ function Home() {
 
   //VAMBORA BOTAO
 
-  const [botao, setAciona] = useState(true)
+  const [botao, setAciona] = useState('food')
   
   /*PARA BUSCAAAAAAA*/
 
-  function btMuda() {
+  function btMuda(event) {
+    const button = event.target
+    const name = button.dataset.name;
+
     setPesquisa(false)
-    setAciona(!botao)
+    if (botao === 'food' || name === 'food') {
+      setAciona('commerce')
+    } else if (botao === 'commerce' || name === 'commerce') {
+      setAciona('food')
+    } else {
+      setAciona('ambos')
+    }
   }
 
   const inputBusca = useRef(null)
 
   function ativaBusca() {
     setPesquisa(true)
+    setAciona('ambos')
   }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       setPesquisa(true)
+      setAciona('ambos')
     }
   }
 
@@ -46,24 +57,35 @@ function Home() {
       <div className='conteudo'>
         <div className='hotbar'>
             {
-              botao == true ? (
+              botao === 'food' ? (
                 <div className='botoes'>
-                  <Button className='button' variant="contained" onClick={btMuda}>
+                  <Button data-name='food' className='button' variant="contained" onClick={btMuda}>
                     <img className='foodImg' src={Food} draggable='false'/>
                     Food
                   </Button>
-                  <Button className='button' variant="contained" onClick={btMuda} disabled>
+                  <Button data-name='commerce' className='button' variant="contained" onClick={btMuda} disabled>
+                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    Commerce
+                  </Button>
+                </div>
+              ) : botao === 'commerce' ? (
+                <div className='botoes'>
+                  <Button data-name='food' className='button' variant="contained" onClick={btMuda} disabled>
+                    <img className='foodImg' src={Food} draggable='false'/>
+                    Food
+                  </Button>
+                  <Button data-name='commerce' className='button' variant="contained" onClick={btMuda}>
                   <img className='foodImg' src={Commerce} draggable='false'/>
                     Commerce
                   </Button>
                 </div>
               ) : (
                 <div className='botoes'>
-                  <Button className='button' variant="contained" onClick={btMuda} disabled>
+                  <Button data-name='food' className='button' variant="contained" onClick={btMuda}>
                     <img className='foodImg' src={Food} draggable='false'/>
                     Food
                   </Button>
-                  <Button className='button' variant="contained" onClick={btMuda}>
+                  <Button data-name='commerce' className='button' variant="contained" onClick={btMuda}>
                   <img className='foodImg' src={Commerce} draggable='false'/>
                     Commerce
                   </Button>
