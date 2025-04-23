@@ -30,6 +30,21 @@ function AbaDireita() {
     const open = Boolean(popupEstado);
     const id = open ? 'simple-popover' : undefined;
 
+    //POPUP FINALIZAR COMPRA
+
+    const [popupFinalizar, setPopupFinalizar] = useState(false);
+
+    const abrirPopupFinalizar = (event) => {
+        setPopupFinalizar(event.currentTarget);
+    }
+
+    const fecharPopupFinalizar = () => {
+        setPopupFinalizar(null);
+    }
+
+    const openFinalizar = Boolean(popupFinalizar);
+    const idFinalizar = openFinalizar ? 'simple-popover' : undefined;
+
     //MOSTRARRRRR
 
     const [opcao, setOpcao] = useState('botoes');
@@ -107,7 +122,36 @@ function AbaDireita() {
                             </div>
                             <div className='baixo'>
                                 <p>Total: R$190,80</p>
-                                <button>Finalizar Compra</button>
+                                <button aria-describedby={id} variant="contained" onClick={abrirPopupFinalizar}>Finalizar Compra</button>
+
+                                <Popover 
+                                    id={idFinalizar}
+                                    open={openFinalizar}
+                                    anchorEl={popupFinalizar}
+                                    onClose={fecharPopupFinalizar}
+                                    anchorReference="anchorPosition"
+                                    anchorPosition={{ top: 0, left: window.innerWidth - window.innerWidth/5 }}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    transformOrigin={{
+                                        vertical: 'center',
+                                        horizontal: 'right',
+                                    }}
+                                    className="custom-popover"
+                                    >
+                                    <Typography component="div" sx={{ p: 2 }}>
+                                    <div className='popup-finalizar'>    
+                                        <div className='topo'>
+                                            <p>Método de pagamento</p>
+                                            <button onClick={fecharPopupFinalizar}>
+                                                <CloseIcon  className='close-icon'/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </Typography>
+                                </Popover>
                             </div>
                         </div>
                         </Typography>

@@ -198,3 +198,33 @@
         }
     }
 }
+
+.popup-finalizar {
+    min-width: 58vw;
+    min-height: 80vh;
+
+    .topo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0px 0px 10px 0px;
+        align-items: center;
+
+        p {
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+            color: grey;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}
