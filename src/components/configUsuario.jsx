@@ -9,6 +9,9 @@ function ConfigUsuario({ trocarAba }) {
         <button onClick={() => trocarAba('botoes')} className='voltar'>
             <ArrowRightIcon />
         </button>
+        <p className='Title-config'>
+          Configurações
+        </p>
       </div>
       </>  
     )

@@ -57,7 +57,7 @@ function AbaDireita() {
                         anchorEl={popupEstado}
                         onClose={fecharPopup}
                         anchorReference="anchorPosition"
-                        anchorPosition={{ top: 0, left: 1580 }}
+                        anchorPosition={{ top: 0, left: window.innerWidth - window.innerWidth/5 }}
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'left',

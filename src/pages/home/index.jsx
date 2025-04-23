@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 import Food from '../../assets/icones/food.png'
@@ -12,53 +12,96 @@ import ConteudoPrincipal from '../../components/conteudoPrincipal'
 
 function Home() {
 
+  const [pesquisa, setPesquisa] = useState(false)
+
+  //VAMBORA BOTAO
+
+  const [botao, setAciona] = useState(true)
+  
+  /*PARA BUSCAAAAAAA*/
+
+  function btMuda() {
+    setPesquisa(false)
+    setAciona(!botao)
+  }
+
   const inputBusca = useRef(null)
 
   function ativaBusca() {
-    if (inputBusca.current) {
-      inputBusca.current.focus()
+    setPesquisa(true)
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      setPesquisa(true)
     }
   }
 
-    return (
-      <>
-      <div className='Tudo'>
-
+  return (
+    <>
+    <div className='Tudo'>
       <div className='menu-esquerdo'>
         <AbaEsquerda />
       </div>
       <div className='conteudo'>
         <div className='hotbar'>
-          <div className='botoes'>
-            <Button className='button' variant="contained">
-              <img className='foodImg' src={Food} draggable='false'/>
-              Food
-            </Button>
-            <Button className='button' variant="contained">
-            <img className='foodImg' src={Commerce} draggable='false'/>
-              Commerce
-            </Button>
-          </div>
+            {
+              botao == true ? (
+                <div className='botoes'>
+                  <Button className='button' variant="contained" onClick={btMuda}>
+                    <img className='foodImg' src={Food} draggable='false'/>
+                    Food
+                  </Button>
+                  <Button className='button' variant="contained" onClick={btMuda} disabled>
+                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    Commerce
+                  </Button>
+                </div>
+              ) : (
+                <div className='botoes'>
+                  <Button className='button' variant="contained" onClick={btMuda} disabled>
+                    <img className='foodImg' src={Food} draggable='false'/>
+                    Food
+                  </Button>
+                  <Button className='button' variant="contained" onClick={btMuda}>
+                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    Commerce
+                  </Button>
+                </div>
+              )
+            }
           <div className='input-container' >
             <div className='button-input'>
               <button className='menu'>
                 <MenuIcon className="menu-icon" />
               </button>
-              <input placeholder="Buscar" name='caixaPesquisa' type='text' ref={inputBusca}/>
+              <input 
+                placeholder="Buscar" 
+                name='caixaPesquisa' 
+                type='text' 
+                ref={inputBusca}
+                onKeyDown={handleKeyDown}
+              />
             </div>
             <button className='search' onClick={ativaBusca}>
               <SearchIcon className="search-icon" />
             </button>
           </div>
         </div>
-        <ConteudoPrincipal />
+        {
+          pesquisa == false ? (
+            <ConteudoPrincipal />
+          ) : (
+            <div>Nada aqui</div>
+          )
+        }
       </div>
       <div className='menu-direito'>
         <AbaDireita />
       </div>
-      </div>
-      </>      
-    )
-  }
+    </div>
+    </>      
+  )
+}
   
   export default Home

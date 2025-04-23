@@ -54,6 +54,11 @@ body {
                 height: 20px;
                 margin-right: 5px;
             }
+
+            &:disabled {
+                background-color: #fcf9f5;
+                cursor: not-allowed;
+            }
         }
     }
 
@@ -139,4 +144,4 @@ body {
 
 .conteudo::-webkit-scrollbar {
     display: none;
-  }
+}
