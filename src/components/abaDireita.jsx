@@ -4,10 +4,19 @@ import Perfil from '../assets/icones/perfil.png'
 import Config from '../assets/icones/configurações.png'
 import Fundo from '../assets/app/fundo.jpg'
 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import PixIcon from '@mui/icons-material/Pix';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 
 import React, { useState } from 'react';
 
@@ -144,10 +153,51 @@ function AbaDireita() {
                                     <Typography component="div" sx={{ p: 2 }}>
                                     <div className='popup-finalizar'>    
                                         <div className='topo'>
-                                            <p>Método de pagamento</p>
-                                            <button onClick={fecharPopupFinalizar}>
-                                                <CloseIcon  className='close-icon'/>
-                                            </button>
+                                            <div className='botao-sair'>
+                                                <p className='subtitulo-pagamento'>Método de pagamento</p>
+                                                <button onClick={fecharPopupFinalizar}>
+                                                    <CloseIcon  className='close-icon'/>
+                                                </button>
+                                            </div>
+                                            <div className='escolha-pagamento'>
+                                                <FormControl>
+                                                    <FormLabel 
+                                                        id="demo-row-radio-buttons-group-label"
+                                                        sx={{
+                                                            color: 'grey', // Cor padrão
+                                                            fontSize: '18px',
+                                                            '&.Mui-focused': { color: '#E88099' }, // Cor quando o Radio Button correspondente é selecionado
+                                                        }}
+                                                    >
+                                                        Forma
+                                                    </FormLabel>
+                                                    <RadioGroup
+                                                        row
+                                                        aria-labelledby="demo-row-radio-buttons-group-label"
+                                                        name="row-radio-buttons-group"
+                                                        className='radio-group'
+                                                    >
+                                                        <FormControlLabel 
+                                                            value="cartao" 
+                                                            control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
+                                                            label={<div className='simbol-forma'>
+                                                                <CreditCardIcon />Cartão</div>}
+                                                         />
+                                                        <FormControlLabel 
+                                                            value="pix" 
+                                                            control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
+                                                            label={<div className='simbol-forma'>
+                                                                <PixIcon /> Pix</div>} 
+                                                        />
+                                                        <FormControlLabel 
+                                                            value="dinheiro" 
+                                                            control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
+                                                            label={<div className='simbol-forma'>
+                                                                <LocalAtmIcon /> Dinheiro</div>} 
+                                                        />
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </div>
                                         </div>
                                     </div>
                                     </Typography>
