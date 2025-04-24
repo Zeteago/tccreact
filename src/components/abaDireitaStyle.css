@@ -247,7 +247,12 @@
     gap: 5px;
 }
 
+.form-control-forma {
+    width: 100%;
+}
+
 .radio-group {
+    padding-left: 5px;
     width: 100%;
     display: flex;
     align-items: center;

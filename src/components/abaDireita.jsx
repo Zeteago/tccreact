@@ -62,6 +62,10 @@ function AbaDireita() {
         setOpcao(novaOpcao); // Atualiza o estado para a nova aba
     };
 
+    //POPUP PAGAMENTO
+
+    const [formaPagamento, setFormaPagamento] = useState('nenhum');
+
     return (
         <>
         {opcao === 'perfil' ? (
@@ -160,7 +164,7 @@ function AbaDireita() {
                                                 </button>
                                             </div>
                                             <div className='escolha-pagamento'>
-                                                <FormControl>
+                                                <FormControl className='form-control-forma'>
                                                     <FormLabel 
                                                         id="demo-row-radio-buttons-group-label"
                                                         sx={{
@@ -182,22 +186,54 @@ function AbaDireita() {
                                                             control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
                                                             label={<div className='simbol-forma'>
                                                                 <CreditCardIcon />Cartão</div>}
+                                                            onClick={() => setFormaPagamento('cartao')}
                                                          />
                                                         <FormControlLabel 
                                                             value="pix" 
                                                             control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
                                                             label={<div className='simbol-forma'>
-                                                                <PixIcon /> Pix</div>} 
+                                                                <PixIcon /> Pix</div>}
+                                                            onClick={() => setFormaPagamento('pix')}
                                                         />
                                                         <FormControlLabel 
                                                             value="dinheiro" 
                                                             control={<Radio sx={{ color: 'grey', '&.Mui-checked': { color: '#E88099' } }} />} 
                                                             label={<div className='simbol-forma'>
-                                                                <LocalAtmIcon /> Dinheiro</div>} 
+                                                                <LocalAtmIcon /> Dinheiro</div>}
+                                                            onClick={() => setFormaPagamento('dinheiro')}
                                                         />
                                                     </RadioGroup>
                                                 </FormControl>
                                             </div>
+                                            {
+                                                formaPagamento === 'cartao' ? (
+                                                    <div className='cartao'>
+                                                        <p>Cartão de crédito</p>
+                                                        <h6>Nome do cartão</h6>
+                                                        <input type='text' placeholder='Nome do cartão'/>
+                                                        <h6>Número do cartão</h6>
+                                                        <input type='number' placeholder='Número do cartão'/>
+                                                        <h6>Data de validade</h6>
+                                                        <input type='text' placeholder='Data de validade'/>
+                                                        <h6>Código de segurança</h6>
+                                                        <input type='number' placeholder='Código de segurança'/>
+                                                    </div>
+                                                ) : formaPagamento === 'pix' ? (
+                                                    <div className='pix'>
+                                                        <p>Pix</p>
+                                                        <h6>Chave pix</h6>
+                                                        <input type='text' placeholder='Chave pix'/>
+                                                    </div>
+                                                ) : formaPagamento === 'dinheiro' ? (
+                                                    <div className='dinheiro'>
+                                                        <p>Dinheiro</p>
+                                                        <h6>Valor em dinheiro</h6>
+                                                        <input type='number' placeholder='Valor em dinheiro'/>
+                                                    </div>
+                                                ) : (
+                                                    <div></div>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                     </Typography>
