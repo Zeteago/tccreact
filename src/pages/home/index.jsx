@@ -6,8 +6,8 @@ import Commerce from '../../assets/icones/commerce.png'
 import './style.css'
 import Button from '@mui/material/Button';
 
-import AbaEsquerda from '../../components/abaEsquerda'
-import AbaDireita from '../../components/abaDireita'
+import AbaEsquerda from '../../components/abas/abaEsquerda'
+import AbaDireita from '../../components/abas/abaDireita'
 import ConteudoPrincipal from '../../components/conteudoPrincipal'
 
 function Home() {
