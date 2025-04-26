@@ -6,8 +6,8 @@
     .topo {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         width: 100%;
+        min-height: 80vh;
         padding: 0px 0px 10px 0px;
 
         .botao-sair {
@@ -19,7 +19,7 @@
             font-size: 24px;
         }
 
-        button {
+        .botao-fecha-pag {
             background-color: #ffffff;
             border: none;
             cursor: pointer;
@@ -37,7 +37,7 @@
 .escolha-pagamento {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
     border-bottom: 1px solid rgb(212, 211, 211);
 }
 
@@ -65,4 +65,62 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.subtitle-pagamento {
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    padding-top: 10px;
+}
+
+.input-pagamento {
+    width: 97%;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid #d4d3d3;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.input-pagamento-menor {
+    width: 90%;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid #d4d3d3;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.data-codigo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.botao-continue-pag {
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    border-radius: 15px;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.parte-esquerda {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 75vh;
+    justify-content: space-between;
 }
