@@ -7,56 +7,56 @@ import EditIcon from '@mui/icons-material/Edit';
 import ImgPadrao from '../assets/app/fundo.jpg'
 
 function PerfilUsuario({ trocarAba }) {
-    const [classe, setClass] = useState('mostrar')
+  const [classe, setClass] = useState('mostrar')
 
-    const [pessoaFake, setPessoaFake] = useState([
-      'Julio',
-      'julio@gmail.com',
-      'rua rubi 28',
-      '14999999999'
-    ])
+  const [pessoaFake, setPessoaFake] = useState([
+    'Julio',
+    'julio@gmail.com',
+    'rua rubi 28',
+    '14999999999'
+  ])
 
-    const [nome, setNome] = useState(pessoaFake[0]);
-    const [email, setEmail] = useState(pessoaFake[1]);
-    const [endereco, setEndereco] = useState(pessoaFake[2]);
-    const [telefone, setTelefone] = useState(pessoaFake[3]);
+  const [nome, setNome] = useState(pessoaFake[0]);
+  const [email, setEmail] = useState(pessoaFake[1]);
+  const [endereco, setEndereco] = useState(pessoaFake[2]);
+  const [telefone, setTelefone] = useState(pessoaFake[3]);
 
-    function Confirmar () {
-      setPessoaFake(
-        [nome, email, endereco, telefone]
-      )
+  function Confirmar() {
+    setPessoaFake(
+      [nome, email, endereco, telefone]
+    )
 
-      setClass('mostrar')
-    }
+    setClass('mostrar')
+  }
 
-    function Voltar () {
-      setNome(pessoaFake[0])
-      setEmail(pessoaFake[1])
-      setEndereco(pessoaFake[2])
-      setTelefone(pessoaFake[3])
+  function Voltar() {
+    setNome(pessoaFake[0])
+    setEmail(pessoaFake[1])
+    setEndereco(pessoaFake[2])
+    setTelefone(pessoaFake[3])
 
-      setClass('mostrar')
-    }
+    setClass('mostrar')
+  }
 
-    const phoneMask = (value) => {
-      if (!value) return "";
-      value = value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
-      value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Formata o DDD
-      value = value.replace(/(\d)(\d{4})$/, "$1-$2"); // Adiciona o hífen no número
-      return value;
-    };
-  
-    const handleChange = (event) => {
-      const inputValue = event.target.value;
-      const maskedValue = phoneMask(inputValue);
-      setTelefone(maskedValue); // Atualiza o estado com o valor formatado
-    };
+  const phoneMask = (value) => {
+    if (!value) return "";
+    value = value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+    value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Formata o DDD
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2"); // Adiciona o hífen no número
+    return value;
+  };
 
-    return (
-      <>
+  const handleChange = (event) => {
+    const inputValue = event.target.value;
+    const maskedValue = phoneMask(inputValue);
+    setTelefone(maskedValue); // Atualiza o estado com o valor formatado
+  };
+
+  return (
+    <>
       <div className='tudo-perfil'>
         <button onClick={() => trocarAba('botoes')} className='voltar'>
-            <ArrowRightIcon />
+          <ArrowRightIcon />
         </button>
         <p className='Title-perfil'>
           Perfil do Usuário
@@ -69,19 +69,19 @@ function PerfilUsuario({ trocarAba }) {
             {
               classe === 'editar' ? (
                 <div className='dentro-input'>
-                  <input 
-                    placeholder="Nome" 
-                    name='caixaNome' 
-                    type='text' 
+                  <input
+                    placeholder="Nome"
+                    name='caixaNome'
+                    type='text'
                     value={nome}
-                    onChange={(e) => setNome(e.target.value)}  
+                    onChange={(e) => setNome(e.target.value)}
                   />
                   <button>
                     <EditIcon />
                   </button>
                 </div>
               ) : (
-                  <p><b>Nome: </b>{pessoaFake[0]}</p>
+                <p><b>Nome: </b>{pessoaFake[0]}</p>
               )
             }
           </div>
@@ -89,10 +89,10 @@ function PerfilUsuario({ trocarAba }) {
             {
               classe === 'editar' ? (
                 <div className='dentro-input'>
-                  <input 
-                    placeholder="Email" 
-                    name='caixaEmail' 
-                    type='text' 
+                  <input
+                    placeholder="Email"
+                    name='caixaEmail'
+                    type='text'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -101,7 +101,7 @@ function PerfilUsuario({ trocarAba }) {
                   </button>
                 </div>
               ) : (
-                  <p><b>Email: </b>{pessoaFake[1]}</p>
+                <p><b>Email: </b>{pessoaFake[1]}</p>
               )
             }
           </div>
@@ -109,19 +109,19 @@ function PerfilUsuario({ trocarAba }) {
             {
               classe === 'editar' ? (
                 <div className='dentro-input'>
-                  <input 
-                    placeholder="Endereco" 
-                    name='caixaEndereco' 
-                    type='text' 
+                  <input
+                    placeholder="Endereco"
+                    name='caixaEndereco'
+                    type='text'
                     value={endereco}
-                    onChange={(e) => setEndereco(e.target.value)} 
+                    onChange={(e) => setEndereco(e.target.value)}
                   />
                   <button>
                     <EditIcon />
                   </button>
                 </div>
               ) : (
-                  <p><b>Endereço: </b>{pessoaFake[2]}</p>
+                <p><b>Endereço: </b>{pessoaFake[2]}</p>
               )
             }
           </div>
@@ -129,11 +129,11 @@ function PerfilUsuario({ trocarAba }) {
             {
               classe === 'editar' ? (
                 <div className='dentro-input'>
-                  <input 
-                    placeholder="Telefone" 
-                    name='caixaTelefone' 
+                  <input
+                    placeholder="Telefone"
+                    name='caixaTelefone'
                     value={telefone}
-                    type="tel" 
+                    type="tel"
                     onChange={handleChange} // Manipula as mudanças no input
                     maxLength="15" // Limita o comprimento máximo
                   />
@@ -142,14 +142,14 @@ function PerfilUsuario({ trocarAba }) {
                   </button>
                 </div>
               ) : (
-                  <p><b>Telefone: </b>{pessoaFake[3]}</p>
+                <p><b>Telefone: </b>{pessoaFake[3]}</p>
               )
             }
           </div>
         </div>
         {
           classe === 'mostrar' ? (
-            
+
             <div className='botaoEditar'>
               <button onClick={() => setClass('editar')} >Editar</button>
             </div>
@@ -162,8 +162,8 @@ function PerfilUsuario({ trocarAba }) {
           )
         }
       </div>
-      </>  
-    )
+    </>
+  )
 }
 
 export default PerfilUsuario

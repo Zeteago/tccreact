@@ -8,101 +8,101 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function ConteudoPrincipal() {
 
-    let lojas = []
+	let lojas = []
 
-    for (var cont = 1; cont < 21; cont++) {
-        lojas.push(`Loja ${cont}`)
-    }
+	for (var cont = 1; cont < 21; cont++) {
+		lojas.push(`Loja ${cont}`)
+	}
 
-    let produtos = []
+	let produtos = []
 
-    for (var cont = 1; cont < 21; cont++) {
-        produtos.push(`Produto ${cont}`)
-    }
+	for (var cont = 1; cont < 21; cont++) {
+		produtos.push(`Produto ${cont}`)
+	}
 
-    return (
-        <>
-        <div className="tudo-cp" >
-            <div className="Banner">
-                <p className='titulo'>TITULO</p>
-                <p className='sub-titulo'>Subtitulo</p>
-                <div className='botoes'>
-                    <button>
-                        <TrendingUpIcon />
-                        <p className='texto'>Em alta</p>
-                    </button>
-                    <button className='distancia'>
-                        <DirectionsWalkIcon />
-                        <p className='texto'> 12 minutos de você</p>
-                    </button>
-                </div>
-            </div>
+	return (
+		<>
+			<div className="tudo-cp" >
+				<div className="Banner">
+					<p className='titulo'>TITULO</p>
+					<p className='sub-titulo'>Subtitulo</p>
+					<div className='botoes'>
+						<button>
+							<TrendingUpIcon />
+							<p className='texto'>Em alta</p>
+						</button>
+						<button className='distancia'>
+							<DirectionsWalkIcon />
+							<p className='texto'> 12 minutos de você</p>
+						</button>
+					</div>
+				</div>
 
-            <div className='Listagem'>
-                <div className='texto'>
-                    <p>
-                        Lojas da AYVU
-                    </p>
-                    <ArrowForwardIcon />
-                </div>
-                <div className='org'>
-                    {
-                        lojas.map((nomeLoja) => (
-                            <div className='lj' key={nomeLoja} draggable='false'>
-                                <img src={Fundo} draggable='false' className='img-lojas'/>
-                                <p className='Nome'>
-                                    {nomeLoja}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+				<div className='Listagem'>
+					<div className='texto'>
+						<p>
+							Lojas da AYVU
+						</p>
+						<ArrowForwardIcon />
+					</div>
+					<div className='org'>
+						{
+							lojas.map((nomeLoja) => (
+								<div className='lj' key={nomeLoja} draggable='false'>
+									<img src={Fundo} draggable='false' className='img-lojas' />
+									<p className='Nome'>
+										{nomeLoja}
+									</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
 
-            <div className='Listagem'>
-                <div className='texto'>
-                    <p>
-                        Produtos
-                    </p>
-                    <ArrowForwardIcon />
-                </div>
-                <div className='org'>
-                    {
-                        produtos.map((nomeProduto) => (
-                            <div className='lj' key={nomeProduto} draggable='false'>
-                                <img src={Fundo} draggable='false' className='img-produtos'/>
-                                <p className='Nome'>
-                                    {nomeProduto}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+				<div className='Listagem'>
+					<div className='texto'>
+						<p>
+							Produtos
+						</p>
+						<ArrowForwardIcon />
+					</div>
+					<div className='org'>
+						{
+							produtos.map((nomeProduto) => (
+								<div className='lj' key={nomeProduto} draggable='false'>
+									<img src={Fundo} draggable='false' className='img-produtos' />
+									<p className='Nome'>
+										{nomeProduto}
+									</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
 
-            <div className='Listagem'>
-                <div className='texto'>
-                    <p>
-                        Produtos
-                    </p>
-                    <ArrowForwardIcon />
-                </div>
-                <div className='org'>
-                    {
-                        produtos.map((nomeProduto) => (
-                            <div className='lj' key={nomeProduto} draggable='false'>
-                                <img src={Fundo} draggable='false' className='img-produtos'/>
-                                <p className='Nome'>
-                                    {nomeProduto}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-        </>
-    )
+				<div className='Listagem'>
+					<div className='texto'>
+						<p>
+							Produtos
+						</p>
+						<ArrowForwardIcon />
+					</div>
+					<div className='org'>
+						{
+							produtos.map((nomeProduto) => (
+								<div className='lj' key={nomeProduto} draggable='false'>
+									<img src={Fundo} draggable='false' className='img-produtos' />
+									<p className='Nome'>
+										{nomeProduto}
+									</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</>
+	)
 }
 
 export default ConteudoPrincipal

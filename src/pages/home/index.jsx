@@ -17,7 +17,7 @@ function Home() {
   //VAMBORA BOTAO
 
   const [botao, setAciona] = useState('food')
-  
+
   /*PARA BUSCAAAAAAA*/
 
   function btMuda(event) {
@@ -50,80 +50,80 @@ function Home() {
 
   return (
     <>
-    <div className='Tudo'>
-      <div className='menu-esquerdo'>
-        <AbaEsquerda />
-      </div>
-      <div className='conteudo'>
-        <div className='hotbar'>
+      <div className='Tudo'>
+        <div className='menu-esquerdo'>
+          <AbaEsquerda />
+        </div>
+        <div className='conteudo'>
+          <div className='hotbar'>
             {
               botao === 'food' ? (
                 <div className='botoes'>
                   <Button data-name='food' className='button' variant="contained" onClick={btMuda}>
-                    <img className='foodImg' src={Food} draggable='false'/>
+                    <img className='foodImg' src={Food} draggable='false' />
                     Food
                   </Button>
                   <Button data-name='commerce' className='button' variant="contained" onClick={btMuda} disabled>
-                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    <img className='foodImg' src={Commerce} draggable='false' />
                     Commerce
                   </Button>
                 </div>
               ) : botao === 'commerce' ? (
                 <div className='botoes'>
                   <Button data-name='food' className='button' variant="contained" onClick={btMuda} disabled>
-                    <img className='foodImg' src={Food} draggable='false'/>
+                    <img className='foodImg' src={Food} draggable='false' />
                     Food
                   </Button>
                   <Button data-name='commerce' className='button' variant="contained" onClick={btMuda}>
-                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    <img className='foodImg' src={Commerce} draggable='false' />
                     Commerce
                   </Button>
                 </div>
               ) : (
                 <div className='botoes'>
                   <Button data-name='food' className='button' variant="contained" onClick={btMuda}>
-                    <img className='foodImg' src={Food} draggable='false'/>
+                    <img className='foodImg' src={Food} draggable='false' />
                     Food
                   </Button>
                   <Button data-name='commerce' className='button' variant="contained" onClick={btMuda}>
-                  <img className='foodImg' src={Commerce} draggable='false'/>
+                    <img className='foodImg' src={Commerce} draggable='false' />
                     Commerce
                   </Button>
                 </div>
               )
             }
-          <div className='input-container' >
-            <div className='button-input'>
-              <button className='menu'>
-                <MenuIcon className="menu-icon" />
+            <div className='input-container' >
+              <div className='button-input'>
+                <button className='menu'>
+                  <MenuIcon className="menu-icon" />
+                </button>
+                <input
+                  placeholder="Buscar"
+                  name='caixaPesquisa'
+                  type='text'
+                  ref={inputBusca}
+                  onKeyDown={handleKeyDown}
+                />
+              </div>
+              <button className='search' onClick={ativaBusca}>
+                <SearchIcon className="search-icon" />
               </button>
-              <input 
-                placeholder="Buscar" 
-                name='caixaPesquisa' 
-                type='text' 
-                ref={inputBusca}
-                onKeyDown={handleKeyDown}
-              />
             </div>
-            <button className='search' onClick={ativaBusca}>
-              <SearchIcon className="search-icon" />
-            </button>
           </div>
+          {
+            pesquisa == false ? (
+              <ConteudoPrincipal />
+            ) : (
+              <div>Nada aqui</div>
+            )
+          }
         </div>
-        {
-          pesquisa == false ? (
-            <ConteudoPrincipal />
-          ) : (
-            <div>Nada aqui</div>
-          )
-        }
+        <div className='menu-direito'>
+          <AbaDireita />
+        </div>
       </div>
-      <div className='menu-direito'>
-        <AbaDireita />
-      </div>
-    </div>
-    </>      
+    </>
   )
 }
-  
-  export default Home
+
+export default Home
