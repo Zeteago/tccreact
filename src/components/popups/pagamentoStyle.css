@@ -101,7 +101,7 @@
 }
 
 .botao-continue-pag {
-    background-color: #000000;
+    background-color: #e88099;
     border: none;
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -123,4 +123,116 @@
     width: 50%;
     height: 75vh;
     justify-content: space-between;
+}
+
+.linha-englobadora-pagamento {
+    display: flex;
+    gap: 10px;
+}
+
+.parte-direita {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    justify-content: space-between;
+    width: 50%;
+
+    .sumario {
+        font-family: 'Quicksand', sans-serif;
+        color: black;
+        font-size: 20px;
+        font-weight: 500;
+        width: 100%;
+        text-align: start;
+        padding-bottom: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+    }
+
+    .container-produtos {
+        display: flex;
+        width: 90%;
+    }
+
+    .container-produto-individual {
+        display: flex;
+        gap: 10px;
+        background-color: rgb(216, 219, 219);
+        border-radius: 15px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .informacoes-produto-pag {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .nome-loja-pag {
+            color: black;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .nome-produto-pag {
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .adicionais-produto-pag {
+            color: black;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .quantidade-produto-pag {
+            color: black;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+
+    .container-preco-pagamento {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .sumario-preco {
+            font-size: 20px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .preco-pagamento {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: rgb(216, 219, 219);
+            border-radius: 15px;
+            margin-bottom: 5px;
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                padding: 10px;
+            }
+        }
+    }
 }

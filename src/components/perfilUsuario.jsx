@@ -61,9 +61,18 @@ function PerfilUsuario({ trocarAba }) {
         <p className='Title-perfil'>
           Perfil do Usuário
         </p>
-        <div className='onde-fica'>
-          <img className='img-perfil-usu' src={ImgPadrao} draggable='false' />
-        </div>
+          {
+            classe === 'editar' ? (
+              <div className='onde-fica'>
+                <img className='img-perfil-usu' src={ImgPadrao} draggable='false' />
+              <EditIcon className='img-perfil-usu-edit' />
+              </div>
+            ) : (
+              <div className='onde-fica'>
+                <img className='img-perfil-usu' src={ImgPadrao} draggable='false' />
+              </div>
+            )
+          }
         <div className='inputs-usuario'>
           <div className={classe}>
             {

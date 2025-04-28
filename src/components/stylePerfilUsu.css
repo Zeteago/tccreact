@@ -30,7 +30,6 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    cursor: pointer;
 }
 
 .onde-fica {
@@ -38,7 +37,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
     padding: 15px 0px;
+}
+
+.img-perfil-usu-edit:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
 
 .inputs-usuario {
