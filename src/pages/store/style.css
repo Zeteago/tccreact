@@ -1,0 +1,100 @@
+.store {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: 100vw;
+    height: 100vh;
+
+    .conteudo-store {
+        background-color: #fcf9f5;
+        height: 100%;
+    }
+}
+
+.laterais {
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.botao-voltar {
+    margin: 10px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.voltar-icon {
+    width: 25px;
+    height: 25px;
+}
+
+#lateral-direita-store {
+    width: 100%;
+
+    .parte-config {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+}
+
+.botao-config {
+    margin: 10px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.banner-store {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 0px 0px 30px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    padding-bottom: 30px;
+
+    z-index: 1;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%; /* Altura da sombra */
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradiente */
+        border-radius: 0px 0px 30px 30px; /* Mesmo border-radius da div */
+        pointer-events: none; /* Garante que o pseudo-elemento não interfira no clique */
+        z-index: -1;
+    }
+
+    .foto-store-banner {
+        width: 10%;
+        height: 0%;
+        border-radius: 50%;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+#foto-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#cor-banner {
+    background-color: blue;
+}

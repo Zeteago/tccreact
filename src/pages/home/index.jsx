@@ -10,7 +10,12 @@ import AbaEsquerda from '../../components/abas/abaEsquerda'
 import AbaDireita from '../../components/abas/abaDireita'
 import ConteudoPrincipal from '../../components/conteudoPrincipal'
 
+import { useLocation } from 'react-router-dom';
+
 function Home() {
+  
+  const location = useLocation(); // Hook para acessar o objeto de localização
+  const message = location.state?.message;
 
   const [pesquisa, setPesquisa] = useState(false)
 

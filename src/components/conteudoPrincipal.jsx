@@ -6,7 +6,18 @@ import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 function ConteudoPrincipal() {
+	const location = useLocation();
+	const message = location.state?.message;
+
+	const navigate = useNavigate();
+	
+  const handleRedirect = () => {
+    navigate('/', { state: { message: 'Hello from Store!' } }); // Redireciona para a rota "/home" com informações
+  };
 
 	let lojas = []
 
@@ -48,7 +59,7 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							lojas.map((nomeLoja) => (
-								<div className='lj' key={nomeLoja} draggable='false'>
+								<div className='lj' key={nomeLoja} draggable='false' onClick={handleRedirect}>
 									<img src={Fundo} draggable='false' className='img-lojas' />
 									<p className='Nome'>
 										{nomeLoja}
