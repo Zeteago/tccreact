@@ -1,3 +1,10 @@
+:root {
+    --altura-banner: 30%; /* Altura do banner */
+    --largura-banner: 100%; /* Largura do banner */
+    --altura-foto-store: 200px; /* Altura da foto do store */
+    --largura-foto-store: 200px; /* Largura da foto do store */
+}
+
 .store {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -55,8 +62,8 @@
 
 .banner-store {
     position: relative;
-    width: 100%;
-    height: 300px;
+    width: var(--largura-banner);
+    height: var(--altura-banner);
     border-radius: 0px 0px 30px 30px;
 
     display: flex;
@@ -74,27 +81,29 @@
         left: 0;
         width: 100%;
         height: 50%; /* Altura da sombra */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradiente */
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)); /* Gradiente */
         border-radius: 0px 0px 30px 30px; /* Mesmo border-radius da div */
         pointer-events: none; /* Garante que o pseudo-elemento não interfira no clique */
         z-index: -1;
     }
 
-    .foto-store-banner {
-        width: 10%;
-        height: 0%;
-        border-radius: 50%;
-        position: absolute;
-        z-index: -1;
+    &.foto-banner {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 
-#foto-banner {
+.foto-store-banner {
+    width: var(--largura-foto-store);
+    height: var(--altura-foto-store);
+    border-radius: 100px;
+    position: absolute;
+    bottom: -50px; /* Posiciona a imagem abaixo do banner */
+    left: 30px;
+    z-index: 1;
+    margin: 0px 0px 0px 30px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-#cor-banner {
-    background-color: blue;
 }

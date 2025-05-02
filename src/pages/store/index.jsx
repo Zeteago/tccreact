@@ -7,10 +7,13 @@ import Voltar from '../../assets/icones/voltar.png'; // Importando o ícone de v
 import ConfigIcone from '../../assets/icones/configurações.png'; // Importando o ícone de configuração
 import Fundo from '../../assets/app/fundo.jpg'; // Importando a imagem de fundo
 
+import Conteudo from '../../components/telaloja/conteudoLoja.jsx'; // Importando o componente de conteúdo da loja 
+
 function Store() {
   const navigate = useNavigate();
 
-  const [tipoBanner, setBanner] = useState('foto-banner');
+  const [tipoBanner, setTipoBanner] = useState('foto-banner');
+  const [corBanner, setCorBanner] = useState('#e88099'); 
 
   // const handleRedirect = () => {
   //   navigate('/store', { state: { message: 'Hello from Store!' } }); // Redireciona para a rota "/home" com informações
@@ -20,7 +23,13 @@ function Store() {
     <div className="store">
       {/* <h1>Store</h1>
       <p>Welcome to the store!</p>
-      <button onClick={handleRedirect}>Go to Home with Message</button> */}
+      <button onClick={handleRedirect}>Go to Home with Message</button> 
+      
+      <div className="configuracoes-banner">
+          <button onClick={() => setTipoBanner('foto-banner')}>Usar Foto</button>
+          <button onClick={() => setTipoBanner('cor-banner')}>Usar Cor</button>
+        </div>
+      */}
       <div id='lateral-esquerda-store' className='laterais'>
         <div className='parte-voltar'>
           <button className='botao-voltar' onClick={() => navigate('/store')}>
@@ -28,21 +37,24 @@ function Store() {
           </button>
         </div>
       </div>
+
       <div className='conteudo-store'>
         <div 
-          className='banner-store'
-          id={tipoBanner}
-          style={{ backgroundImage: `url(${Fundo})` }} 
-        >	
+          className={`banner-store ${tipoBanner}`}
+          style={{
+            backgroundImage: tipoBanner === 'foto-banner' ? `url(${Fundo})` : 'none',
+            backgroundColor: tipoBanner === 'cor-banner' ? corBanner : 'transparent',
+          }} 
+        >
           <div 
             className='foto-store-banner' 
             src={Fundo}
             style={{ backgroundImage: `url(${Fundo})` }}
-          >
-
-          </div>
+          ></div>
         </div>
+        <Conteudo />
       </div>
+
       <div id='lateral-direita-store' className='laterais'>
         <div className='parte-config'>
           <button className='botao-config' onClick={() => navigate('/store')}>
