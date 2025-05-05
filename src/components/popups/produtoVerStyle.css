@@ -1,0 +1,15 @@
+.popup-produtoVer {
+  display: inline-block;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  color: black;
+  border-radius: 20px;
+
+  .topo {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    border-bottom: 1px solid rgb(212, 211, 211);
+    padding: 0px 0px 10px 0px;
+  }
+}

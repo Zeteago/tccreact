@@ -10,6 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
+import ProdutoVer from '../popups/produtoVer';
+
 const labels = {
   0.5: 'Péssimo',
   1: 'Péssimo+',
@@ -53,6 +55,21 @@ function ConteudoLoja() {
 	for (var cont = 1; cont < 21; cont++) {
 		produtos.push(`Produto ${cont}`)
 	}
+
+  //POPUP
+
+  const [popupEstado, setPopupEstado] = useState(null);
+  
+  const abrirPopup = (event) => {
+    setPopupEstado(event.currentTarget);
+  };
+
+  const fecharPopup = () => {
+    setPopupEstado(null);
+  };
+
+  const open = Boolean(popupEstado);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <div className="td-conteudo-loja">
@@ -98,9 +115,19 @@ function ConteudoLoja() {
             <MenuIcon className="menu-icon" />
           </button>
           {tipoUsuario === true ? (
-            <button className='botao-adicionar'>Adicionar Produto</button>
+            <button 
+              className='botao-adicionar'
+              onClick={() => setTipoUsuario(false)}
+            >
+              Adicionar Produto
+            </button>
           ) : (
-            <button className='botao-adicionar'>Adicionar Avaliação</button>
+            <button 
+              className='botao-adicionar'
+              onClick={() => setTipoUsuario(true)}
+            >
+              Adicionar Avaliação
+            </button>
           )}
         </div>
 
@@ -144,7 +171,7 @@ function ConteudoLoja() {
           <div className='org'>
             {
               produtos.map((nomeProduto) => (
-                <div className='lj' key={nomeProduto} draggable='false'>
+                <div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
                   <img src={Fundo} draggable='false' className='img-produtos' />
                   <p className='Nome'>
                     {nomeProduto}
@@ -152,6 +179,12 @@ function ConteudoLoja() {
                 </div>
               ))
             }
+            <ProdutoVer 
+							id={id}
+							open={open}
+							popupEstado={popupEstado}
+							fecharPopup={fecharPopup}
+            />
           </div>
         </div>
         <div className='Listagem-dentro'>
