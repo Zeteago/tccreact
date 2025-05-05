@@ -1,5 +1,5 @@
 :root {
-    --altura-banner: 30%; /* Altura do banner */
+    --altura-banner: 30vh; /* Altura do banner */
     --largura-banner: 100%; /* Largura do banner */
     --altura-foto-store: 200px; /* Altura da foto do store */
     --largura-foto-store: 200px; /* Largura da foto do store */
@@ -9,12 +9,17 @@
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     width: 100vw;
-    height: 100vh;
+    height: 100vh; /* Altura total da viewport */
+}
 
-    .conteudo-store {
-        background-color: #fcf9f5;
-        height: 100%;
-    }
+.conteudo-store {
+    background-color: #fcf9f5;
+    height: 100%; /* Ocupa toda a altura disponível */
+    overflow-y: auto; /* Adiciona scroll vertical */
+    overflow-x: hidden; /* Evita scroll horizontal */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .laterais {
@@ -63,8 +68,9 @@
 .banner-store {
     position: relative;
     width: var(--largura-banner);
-    height: var(--altura-banner);
-    border-radius: 0px 0px 30px 30px;
+    height: var(--altura-banner); /* Altura fixa do banner */
+    flex-shrink: 0; /* Garante que o banner não seja comprimido pelo scroll */
+    border-radius: 0px 0px 20px 20px;
 
     display: flex;
     flex-direction: column;

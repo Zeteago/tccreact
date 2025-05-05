@@ -1,11 +1,14 @@
 import './styleConteudoLoja.css';
 
+import Fundo from '../../assets/app/fundo.jpg'
+
 import React, { useRef, useState } from 'react';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const labels = {
   0.5: 'Péssimo',
@@ -43,13 +46,21 @@ function ConteudoLoja() {
     }
   }
 
+  //PREPARAAAAAAAAAAAA que aqui tao os produto
+  
+	let produtos = []
+
+	for (var cont = 1; cont < 21; cont++) {
+		produtos.push(`Produto ${cont}`)
+	}
+
   return (
     <div className="td-conteudo-loja">
       <div className='parte-superior-loja'>
         <div className='parte-esquerda-loja'>
           <p className='nome-loja'>Loja Tal</p>
           <p className='categoria-loja'>Marmitas e Sucos</p>
-          <p className='seguidores'>999</p>
+          <p className='seguidores'>Seguidores: 999</p>
         </div>
         <div className='parte-descricao-loja'>
           <p className='descricao-loja'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto accusantium sunt iste quibusdam provident hic consequatur, nam rerum enim perferendis quo vel, molestias vero voluptate eligendi possimus nemo tenetur nisi!
@@ -123,7 +134,66 @@ function ConteudoLoja() {
       </div>
 
       <div className='parte-inferior-loja'>
-        
+        <div className='Listagem-dentro'>
+          <div className='texto'>
+            <p>
+              Produtos
+            </p>
+            <ArrowForwardIcon />
+          </div>
+          <div className='org'>
+            {
+              produtos.map((nomeProduto) => (
+                <div className='lj' key={nomeProduto} draggable='false'>
+                  <img src={Fundo} draggable='false' className='img-produtos' />
+                  <p className='Nome'>
+                    {nomeProduto}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div className='Listagem-dentro'>
+          <div className='texto'>
+            <p>
+              Produtos
+            </p>
+            <ArrowForwardIcon />
+          </div>
+          <div className='org'>
+            {
+              produtos.map((nomeProduto) => (
+                <div className='lj' key={nomeProduto} draggable='false'>
+                  <img src={Fundo} draggable='false' className='img-produtos' />
+                  <p className='Nome'>
+                    {nomeProduto}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div className='Listagem-dentro'>
+          <div className='texto'>
+            <p>
+              Produtos
+            </p>
+            <ArrowForwardIcon />
+          </div>
+          <div className='org'>
+            {
+              produtos.map((nomeProduto) => (
+                <div className='lj' key={nomeProduto} draggable='false'>
+                  <img src={Fundo} draggable='false' className='img-produtos' />
+                  <p className='Nome'>
+                    {nomeProduto}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   );

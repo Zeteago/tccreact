@@ -1,14 +1,15 @@
 .td-conteudo-loja {
+  width: 60vw; /* Ocupa 60% da largura da tela */
+  min-height: 100vh; /* Limita a altura ao tamanho da viewport */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .parte-superior-loja {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   width: 100%;
-  height: 100%;
   padding: 75px 10px 0px 10px;
   gap: 20px;
   font-family: 'Quicksand', sans-serif;
@@ -185,4 +186,27 @@
       }
     }
   }
+}
+
+.Listagem-dentro {
+
+  font-family: 'Quicksand', sans-serif;
+  width: 95%;
+  padding-top: 20px;
+  margin: 0px 40px;
+  max-width: 95%;
+  user-select: none;
+
+  .texto {
+      display: flex;
+      padding-bottom: 10px;
+      gap: 20px;
+
+      p {
+          font-size: 20px;
+          font-weight: 500;
+      }
+  }
+
+  
 }
