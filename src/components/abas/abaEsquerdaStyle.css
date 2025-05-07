@@ -3,6 +3,8 @@
     background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;
     height: 100%;
+    box-shadow: inset 10px 0 15px -10px rgba(0, 0, 0, 0.5), /* Sombra na esquerda */
+                inset -10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Sombra na direita */
 }
 
 .title-button {

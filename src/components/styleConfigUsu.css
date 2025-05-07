@@ -4,11 +4,13 @@
     flex-direction: column;
     border-left: 1px solid grey;
     min-height: 100%;
+    box-shadow: inset 10px 0 15px -10px rgba(0, 0, 0, 0.5), /* Sombra na esquerda */
+                inset -10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Sombra na direita */
 }
 
 .voltar {
     width: 10%;
-    background-color: #fff;
+    background-color: #ffffff00;
     border: none;
     padding: 20px;
     cursor: pointer;

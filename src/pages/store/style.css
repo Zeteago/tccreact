@@ -25,6 +25,8 @@
 .laterais {
     background-color: #ffffff;
     height: 100%;
+    box-shadow: inset 10px 0 15px -10px rgba(0, 0, 0, 0.5), /* Sombra na esquerda */
+                inset -10px 0 15px -10px rgba(0, 0, 0, 0.5); /* Sombra na direita */
 }
 
 .botao-voltar {
@@ -112,4 +114,26 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 720px) {
+    .store {
+        display: flex;
+        width: 100vw;
+        height: 100vh; /* Altura total da viewport */
+    }
+
+    .laterais {
+        display: none; /* Esconde as laterais em telas menores */
+    }
+
+    .conteudo-store {
+        width: 100%;
+    }
+
+    .banner-store {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

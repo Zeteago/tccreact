@@ -6,6 +6,8 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 
+import Fundo from '../../assets/app/fundo.jpg';
+
 function ProdutoVer({
   fecharPopup,
 	id,
@@ -19,7 +21,10 @@ function ProdutoVer({
       anchorEl={popupEstado}
       onClose={fecharPopup}
       anchorReference="anchorPosition"
-      anchorPosition={{ top: 0, left: window.innerWidth - (window.innerWidth / 5) }}
+      anchorPosition={{ 
+        top: window.innerHeight - ((window.innerHeight / 10) * 5), 
+        left: window.innerWidth - ((window.innerWidth / 8) * 2) 
+      }}
       anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'left',
@@ -28,15 +33,33 @@ function ProdutoVer({
         vertical: 'center',
         horizontal: 'right',
       }}
-      className="custom-popover"
+      classes={{
+        paper: 'custom-popover-produto', // Aplica a classe CSS ao Paper interno
+      }}
     >
-      <Typography component="div" sx={{ p: 2 }}>
+      <Typography component="divProdutoVer" sx={{ p: 2 }}>
         <div className="popup-produtoVer">
           <div className="topo">
             <p>Produto</p>
-            <button onClick={fecharPopup}>
+            <button onClick={fecharPopup} className='fecharPopupProduto'>
               <CloseIcon />
             </button>
+          </div>
+          <div className='responsividadeProdutoVer'>
+            <div className='imagensDoProdutoVer'>
+              <img src={Fundo} className='imagemProdutoVer'/>
+            </div>
+            <div className='InformacoesProdutoVer'>
+              <div className='informacoesProdutoVer'>
+                <p className='nomeProdutoVer'>Nome do Produto</p>
+                <p className='descricaoProdutoVer'>Descrição do Produto</p>
+                <p className='precoProdutoVer'>R$ 99,99</p>
+              </div>
+              <div className='botoesProdutoVer'>
+                <button className='botaoComprarProdutoVer'>Comprar</button>
+                <button className='botaoAdicionarCarrinhoProdutoVer'>Adicionar ao Carrinho</button>
+              </div>
+            </div>
           </div>
         </div>
       </Typography>

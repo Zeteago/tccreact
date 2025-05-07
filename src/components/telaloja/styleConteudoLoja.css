@@ -210,3 +210,28 @@
 
   
 }
+
+@media (max-width: 720px) {
+  .parte-meio-loja {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 40px;
+  }
+
+  .parte-superior-loja {
+    display: flex;
+    flex-direction: column;
+    padding: 75px 10px 0px 10px;
+    gap: 20px;
+  }
+
+  .descricao-loja {
+    text-align: center;
+    padding-right: 20px;
+  }
+
+  .td-conteudo-loja {
+    width: 100%;
+  }
+}
