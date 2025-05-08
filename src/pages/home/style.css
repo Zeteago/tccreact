@@ -136,7 +136,7 @@ body {
 }
 
 .conteudo {
-    height: 100%; /* Garante que a altura seja fixa */
+    height: 100%;                                                                              ; /* Garante que a altura seja fixa */
     overflow-x: hidden; /* Remove o scroll horizontal */
     scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
     -ms-overflow-style: none; /* Para o IE e Edge Legacy */
@@ -144,4 +144,39 @@ body {
 
 .conteudo::-webkit-scrollbar {
     display: none;
+}
+
+@media (max-width: 720px) {
+    
+    .menu-esquerdo, .menu-direito {
+        display: none;
+    }
+
+    .Tudo {
+        grid-template-columns: 1fr;
+    }
+
+    .hotbar {
+        grid-template-columns: 1fr; /* 1 coluna */
+    
+        .botoes {
+            display: flex;
+            flex-direction: row;
+            
+            .button{
+                width: 50%;
+    
+                .foodImg {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                }
+    
+                &:disabled {
+                    background-color: #fcf9f5;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
 }

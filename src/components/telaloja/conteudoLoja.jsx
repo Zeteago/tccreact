@@ -104,7 +104,7 @@ function ConteudoLoja() {
             )}
           </Box>
           </div>
-          <p className='quantidade-avaliacao'>999 avaliações</p>
+          <p className='quantidade-avaliacao'>99 avaliações</p>
         </div>
       </div>
       <div className='parte-meio-loja'>

@@ -1,6 +1,6 @@
 .td-conteudo-loja {
   width: 60vw; /* Ocupa 60% da largura da tela */
-  min-height: 100vh; /* Limita a altura ao tamanho da viewport */
+  height: 100%; /* Limita a altura ao tamanho da viewport */
   display: flex;
   flex-direction: column;
   margin: 0 auto; /* Centraliza horizontalmente */
@@ -188,6 +188,10 @@
   }
 }
 
+.parte-inferior-loja {
+  padding-bottom: 100px;
+}
+
 .Listagem-dentro {
 
   font-family: 'Quicksand', sans-serif;
@@ -233,5 +237,29 @@
 
   .td-conteudo-loja {
     width: 100%;
+  }
+  
+  .parte-superior-loja {
+    display: flex;
+    align-items: center;
+  }
+
+  .parte-esquerda-loja {
+    margin-left: 0px;
+  }
+
+  .filtro-adicionar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .parte-meio-loja {
+    .edicao-loja {
+      align-items: center;
+  
+      button {
+        width: 100%;
+      }
+    }
   }
 }

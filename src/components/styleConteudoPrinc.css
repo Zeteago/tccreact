@@ -1,10 +1,13 @@
 .tudo-cp {
     background-color: #fcf9f5;
     max-width: 100%;
-    min-height: 200%;
+    min-height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: visible; /* Garante que o conteúdo que ultrapassa não seja cortado */
+    padding-bottom: 20px; /* Adiciona um espaçamento na parte inferior */
+    
 
     .Banner {
         position: relative;
@@ -170,5 +173,58 @@
 
     &:active {
         opacity: 0.9;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .tudo-cp {
+        .Banner {
+            width: 90%;
+            height: 200px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+
+            .titulo {
+                font-size: 25px;
+            }
+
+            .sub-titulo {
+                font-size: 12px;
+            }
+
+            .botoes {
+                button {
+                    font-size: 14px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    
+    }
+
+    .Listagem {
+        width: 100%;
+    }
+
+    .org {
+        gap: 20px;
+    }
+
+    .lj {
+        .img-lojas {
+            width: 80px;
+            height: 80px;
+        }
+
+        .img-produtos {
+            width: 80px;
+            height: 80px;
+        }
+
+        .Nome {
+            font-size: 16px;
+            width: 80px;
+        }
     }
 }

@@ -65,6 +65,13 @@
 /* responsividade */
 
 @media (max-width: 720px) {
+  .custom-popover-produto {
+    /* Define a largura e altura do Popover */
+    width: 90%;
+    height: 70%;
+    border-radius: 20px; /* Bordas arredondadas */
+  }
+
   .responsividadeProdutoVer {
     display: flex;
     flex-direction: column;
