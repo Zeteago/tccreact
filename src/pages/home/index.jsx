@@ -9,8 +9,10 @@ import Button from '@mui/material/Button';
 import AbaEsquerda from '../../components/abas/abaEsquerda'
 import AbaDireita from '../../components/abas/abaDireita'
 import ConteudoPrincipal from '../../components/conteudoPrincipal'
+import SimpleBottomNavigation from '../../components/barraNav'
 
 import { useLocation } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material'; // Importa o hook useMediaQuery
 
 function Home() {
   
@@ -18,6 +20,9 @@ function Home() {
   const message = location.state?.message;
 
   const [pesquisa, setPesquisa] = useState(false)
+
+  // Verifica se a tela é menor que 720px
+  const isMobile = useMediaQuery('(max-width: 720px)');
 
   //VAMBORA BOTAO
 
@@ -127,6 +132,8 @@ function Home() {
           <AbaDireita />
         </div>
       </div>
+      {/* Renderiza a barra de navegação apenas se for mobile */}
+      {isMobile && <div className="bottom-navigation"><SimpleBottomNavigation /></div>}
     </>
   )
 }

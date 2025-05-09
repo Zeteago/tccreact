@@ -1,0 +1,30 @@
+.iconeNavBar {
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.iconeNavBar.active {
+  color: #e88099; /* Cor quando o ícone está selecionado */
+}
+
+.navBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 50px;
+}
+
+.iconeNav {
+  width: 20px;
+  height: 20px;
+}

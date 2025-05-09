@@ -197,7 +197,7 @@ function ConteudoLoja() {
           <div className='org'>
             {
               produtos.map((nomeProduto) => (
-                <div className='lj' key={nomeProduto} draggable='false'>
+                <div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
                   <img src={Fundo} draggable='false' className='img-produtos' />
                   <p className='Nome'>
                     {nomeProduto}
@@ -217,7 +217,7 @@ function ConteudoLoja() {
           <div className='org'>
             {
               produtos.map((nomeProduto) => (
-                <div className='lj' key={nomeProduto} draggable='false'>
+                <div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
                   <img src={Fundo} draggable='false' className='img-produtos' />
                   <p className='Nome'>
                     {nomeProduto}

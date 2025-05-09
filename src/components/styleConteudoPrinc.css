@@ -179,6 +179,8 @@
 @media (max-width: 720px) {
 
     .tudo-cp {
+        padding-bottom: 120px;
+
         .Banner {
             width: 90%;
             height: 200px;

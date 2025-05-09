@@ -56,7 +56,7 @@ function ProdutoVer({
                 <p className='precoProdutoVer'>R$ 99,99</p>
               </div>
               <div className='botoesProdutoVer'>
-                <button className='botaoComprarProdutoVer'>Comprar</button>
+                <button className='botaoComprarProdutoVer'>Comprar agora</button>
                 <button className='botaoAdicionarCarrinhoProdutoVer'>Adicionar ao Carrinho</button>
               </div>
             </div>

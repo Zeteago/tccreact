@@ -8,6 +8,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+
+import ProdutoVer from './popups/produtoVer';
 
 function ConteudoPrincipal() {
 	const location = useLocation();
@@ -30,6 +33,21 @@ function ConteudoPrincipal() {
 	for (var cont = 1; cont < 21; cont++) {
 		produtos.push(`Produto ${cont}`)
 	}
+	
+	//POPUP
+
+	const [popupEstado, setPopupEstado] = useState(null);
+	
+	const abrirPopup = (event) => {
+		setPopupEstado(event.currentTarget);
+	};
+
+	const fecharPopup = () => {
+		setPopupEstado(null);
+	};
+
+  const open = Boolean(popupEstado);
+  const id = open ? 'simple-popover' : undefined;
 
 	return (
 		<>
@@ -80,7 +98,7 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false'>
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
 									<img src={Fundo} draggable='false' className='img-produtos' />
 									<p className='Nome'>
 										{nomeProduto}
@@ -88,6 +106,12 @@ function ConteudoPrincipal() {
 								</div>
 							))
 						}
+            <ProdutoVer 
+							id={id}
+							open={open}
+							popupEstado={popupEstado}
+							fecharPopup={fecharPopup}
+            />
 					</div>
 				</div>
 
@@ -101,7 +125,7 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false'>
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
 									<img src={Fundo} draggable='false' className='img-produtos' />
 									<p className='Nome'>
 										{nomeProduto}
@@ -109,6 +133,39 @@ function ConteudoPrincipal() {
 								</div>
 							))
 						}
+            <ProdutoVer 
+							id={id}
+							open={open}
+							popupEstado={popupEstado}
+							fecharPopup={fecharPopup}
+            />
+					</div>
+				</div>
+				
+				<div className='Listagem'>
+					<div className='texto'>
+						<p>
+							Produtos
+						</p>
+						<ArrowForwardIcon />
+					</div>
+					<div className='org'>
+						{
+							produtos.map((nomeProduto) => (
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
+									<img src={Fundo} draggable='false' className='img-produtos' />
+									<p className='Nome'>
+										{nomeProduto}
+									</p>
+								</div>
+							))
+						}
+            <ProdutoVer 
+							id={id}
+							open={open}
+							popupEstado={popupEstado}
+							fecharPopup={fecharPopup}
+            />
 					</div>
 				</div>
 			</div>
