@@ -102,7 +102,8 @@ function Home() {
                 </div>
               )
             }
-            <div className='input-container' >
+            {
+              !isMobile && <div className='input-container' >
               <div className='button-input'>
                 <button className='menu'>
                   <MenuIcon className="menu-icon" />
@@ -119,6 +120,7 @@ function Home() {
                 <SearchIcon className="search-icon" />
               </button>
             </div>
+            }
           </div>
           {
             pesquisa == false ? (

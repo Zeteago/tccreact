@@ -22,6 +22,22 @@
     margin: 0 auto; /* Centraliza horizontalmente */
 }
 
+
+::-webkit-scrollbar {
+    width: 0px; /* largura da barra de scroll */
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
 .laterais {
     background-color: #ffffff;
     height: 100%;

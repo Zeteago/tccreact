@@ -15,7 +15,7 @@
 }
 
 .iconeNavBar.active {
-  color: #e88099; /* Cor quando o ícone está selecionado */
+  background-color: grey;
 }
 
 .navBar {

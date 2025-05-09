@@ -9,7 +9,14 @@ import Fundo from '../../assets/app/fundo.jpg'; // Importando a imagem de fundo
 
 import Conteudo from '../../components/telaloja/conteudoLoja.jsx'; // Importando o componente de conteúdo da loja 
 
+import SimpleBottomNavigation from '../../components/barraNav'
+import { useMediaQuery } from '@mui/material'; // Importa o hook useMediaQuery
+
 function Store() {
+  // Verifica se a tela é menor que 720px
+  const isMobile = useMediaQuery('(max-width: 720px)');
+
+
   const navigate = useNavigate();
 
   const [tipoBanner, setTipoBanner] = useState('foto-banner');
@@ -20,6 +27,7 @@ function Store() {
   // };
 
   return (
+    <>
     <div className="store">
       {/* <h1>Store</h1>
       <p>Welcome to the store!</p>
@@ -63,6 +71,9 @@ function Store() {
         </div>
       </div>
     </div>
+    {/* Renderiza a barra de navegação apenas se for mobile */}
+    {isMobile && <div className="bottom-navigation"><SimpleBottomNavigation /></div>}
+    </>
   );
 }
 
