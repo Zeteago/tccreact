@@ -7,7 +7,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        min-height: 80vh;
+        min-height: 100%;
         padding: 0px 0px 10px 0px;
 
         .botao-sair {
@@ -121,7 +121,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 75vh;
+    height: 75%;
     justify-content: space-between;
 }
 

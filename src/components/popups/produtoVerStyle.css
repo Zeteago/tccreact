@@ -32,19 +32,19 @@
 }
 
 .imagensDoProdutoVer {
-  width: 50%;
-  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50%;
+  height: 80%;
+  overflow: hidden; /* Garante que nada além da div seja visível */
 }
 
 .imagemProdutoVer {
+  border-radius: 20px;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  
-  background-size: cover;
+  object-fit: contain;
 }
 
 .divProdutoVer {

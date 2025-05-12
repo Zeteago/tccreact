@@ -14,6 +14,11 @@ function ProdutoVer({
 	open,
 	popupEstado
 }) {
+  
+	const preventContextMenu = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Popover
       id={id}
@@ -47,7 +52,8 @@ function ProdutoVer({
           </div>
           <div className='responsividadeProdutoVer'>
             <div className='imagensDoProdutoVer'>
-              <img src={Fundo} className='imagemProdutoVer'/>
+              <img src={Fundo} className='imagemProdutoVer' 
+              onContextMenu={preventContextMenu}/>
             </div>
             <div className='InformacoesProdutoVer'>
               <div className='informacoesProdutoVer'>

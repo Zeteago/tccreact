@@ -49,6 +49,10 @@ function ConteudoPrincipal() {
   const open = Boolean(popupEstado);
   const id = open ? 'simple-popover' : undefined;
 
+	const preventContextMenu = (e) => {
+    e.preventDefault();
+  };
+
 	return (
 		<>
 			<div className="tudo-cp" >
@@ -77,7 +81,8 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							lojas.map((nomeLoja) => (
-								<div className='lj' key={nomeLoja} draggable='false' onClick={handleRedirect}>
+								<div className='lj' key={nomeLoja} draggable='false' onClick={handleRedirect}
+								onContextMenu={preventContextMenu}>
 									<img src={Fundo} draggable='false' className='img-lojas' />
 									<p className='Nome'>
 										{nomeLoja}
@@ -98,7 +103,8 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup} 
+								onContextMenu={preventContextMenu}>
 									<img src={Fundo} draggable='false' className='img-produtos' />
 									<p className='Nome'>
 										{nomeProduto}
@@ -125,7 +131,8 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}
+								onContextMenu={preventContextMenu}>
 									<img src={Fundo} draggable='false' className='img-produtos' />
 									<p className='Nome'>
 										{nomeProduto}
@@ -152,7 +159,8 @@ function ConteudoPrincipal() {
 					<div className='org'>
 						{
 							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}>
+								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}
+								onContextMenu={preventContextMenu}>
 									<img src={Fundo} draggable='false' className='img-produtos' />
 									<p className='Nome'>
 										{nomeProduto}
