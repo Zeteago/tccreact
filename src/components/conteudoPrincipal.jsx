@@ -1,184 +1,128 @@
-import './styleConteudoPrinc.css'
-
-import Fundo from '../assets/app/fundo.jpg'
-
+import React from 'react';
+import './styleConteudoPrinc.css';
+import Fundo from '../assets/app/fundo.jpg'; // Placeholder image
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import React, { useRef, useState } from 'react';
+import ProdutoVer from './popups/produtoVer'; // Assuming this is for viewing product details
 
-import ProdutoVer from './popups/produtoVer';
+// Componente para exibir um único card de loja
+const LojaCard = ({ loja }) => {
+  const navigate = useNavigate();
 
-function ConteudoPrincipal() {
-	const location = useLocation();
-	const message = location.state?.message;
-
-	const navigate = useNavigate();
-	
   const handleRedirect = () => {
-    navigate('/', { state: { message: 'Hello from Store!' } }); // Redireciona para a rota "/home" com informações
+    // Navega para a página da loja específica
+    navigate(`/store/${loja.id}`); 
   };
 
-	let lojas = []
+  return (
+    <div className='lj' key={loja.id} draggable='false' onClick={handleRedirect} title={loja.nome}>
+      {/* TODO: Usar imagem real da loja (ex: loja.banner_url ou um placeholder) */}
+      <img src={Fundo} draggable='false' className='img-lojas' alt={loja.nome} />
+      <p className='Nome'>
+        {loja.nome}
+      </p>
+      {/* TODO: Adicionar mais informações se necessário (ex: avaliação, tipo) */}
+    </div>
+  );
+};
 
-	for (var cont = 1; cont < 21; cont++) {
-		lojas.push(`Loja ${cont}`)
-	}
-
-	let produtos = []
-
-	for (var cont = 1; cont < 21; cont++) {
-		produtos.push(`Produto ${cont}`)
-	}
-	
-	//POPUP
-
-	const [popupEstado, setPopupEstado] = useState(null);
-	
-	const abrirPopup = (event) => {
-		setPopupEstado(event.currentTarget);
-	};
-
-	const fecharPopup = () => {
-		setPopupEstado(null);
-	};
-
+// Componente principal que recebe os dados das lojas
+function ConteudoPrincipal({ lojas, loading, error, tipo }) {
+  
+  // TODO: Implementar popup de visualização de produto (ProdutoVer)
+  // Atualmente, este componente foca em listar lojas.
+  // A listagem de produtos pode pertencer à página da loja ou a uma seção diferente.
+  const [popupEstado, setPopupEstado] = React.useState(null);
+  const abrirPopup = (event) => setPopupEstado(event.currentTarget);
+  const fecharPopup = () => setPopupEstado(null);
   const open = Boolean(popupEstado);
   const id = open ? 'simple-popover' : undefined;
 
-	const preventContextMenu = (e) => {
-    e.preventDefault();
+  const renderContent = () => {
+    if (loading) {
+      return <div className="loading-message">Carregando lojas...</div>;
+    }
+
+    if (error) {
+      return <div className="error-message">{error}</div>;
+    }
+
+    if (!lojas || lojas.length === 0) {
+      return <div className="no-results-message">Nenhuma loja encontrada.</div>;
+    }
+
+    // Determina o título da seção com base no tipo
+    let tituloSecao = "Lojas da AYVU";
+    if (tipo === 'food') tituloSecao = "Restaurantes e Lanches";
+    if (tipo === 'commerce') tituloSecao = "Lojas e Comércio";
+    if (tipo === 'busca') tituloSecao = "Resultados da Busca";
+
+    return (
+      <div className='Listagem'>
+        <div className='texto'>
+          <p>{tituloSecao}</p>
+          <ArrowForwardIcon />
+        </div>
+        <div className='org'>
+          {lojas.map((loja) => (
+            <LojaCard key={loja.id} loja={loja} />
+          ))}
+        </div>
+      </div>
+    );
   };
 
-	return (
-		<>
-			<div className="tudo-cp" >
-				<div className="Banner">
-					<p className='titulo'>TITULO</p>
-					<p className='sub-titulo'>Subtitulo</p>
-					<div className='botoes'>
-						<button>
-							<TrendingUpIcon />
-							<p className='texto'>Em alta</p>
-						</button>
-						<button className='distancia'>
-							<DirectionsWalkIcon />
-							<p className='texto'> 12 minutos de você</p>
-						</button>
-					</div>
-				</div>
+  return (
+    <>
+      <div className="tudo-cp">
+        {/* O Banner parece ser estático ou ter lógica própria, mantido por enquanto */}
+        <div className="Banner">
+          <p className='titulo'>AYVU Marketplace</p> {/* Placeholder */} 
+          <p className='sub-titulo'>Comida e Comércio, perto de você.</p> {/* Placeholder */} 
+          <div className='botoes'>
+            <button>
+              <TrendingUpIcon />
+              <p className='texto'>Em alta</p>
+            </button>
+            <button className='distancia'>
+              <DirectionsWalkIcon />
+              <p className='texto'> Perto de você</p> {/* TODO: Implementar geolocalização? */}
+            </button>
+          </div>
+        </div>
 
-				<div className='Listagem'>
-					<div className='texto'>
-						<p>
-							Lojas da AYVU
-						</p>
-						<ArrowForwardIcon />
-					</div>
-					<div className='org'>
-						{
-							lojas.map((nomeLoja) => (
-								<div className='lj' key={nomeLoja} draggable='false' onClick={handleRedirect}
-								onContextMenu={preventContextMenu}>
-									<img src={Fundo} draggable='false' className='img-lojas' />
-									<p className='Nome'>
-										{nomeLoja}
-									</p>
-								</div>
-							))
-						}
-					</div>
-				</div>
-
-				<div className='Listagem'>
-					<div className='texto'>
-						<p>
-							Produtos
-						</p>
-						<ArrowForwardIcon />
-					</div>
-					<div className='org'>
-						{
-							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup} 
-								onContextMenu={preventContextMenu}>
-									<img src={Fundo} draggable='false' className='img-produtos' />
-									<p className='Nome'>
-										{nomeProduto}
-									</p>
-								</div>
-							))
-						}
+        {/* Renderiza a lista de lojas ou mensagens de estado */}
+        {renderContent()}
+        
+        <div className='Listagem'>
+          <div className='texto'>
+            <p>Produtos em Destaque</p>
+            <ArrowForwardIcon />
+          </div>
+          <div className='org'>
+            { // Mapear produtos reais aqui quando a lógica for definida
+              [1, 2, 3, 4, 5].map((prodId) => (
+                <div className='lj' key={prodId} draggable='false' aria-describedby={id} onClick={abrirPopup}>
+                  <img src={Fundo} draggable='false' className='img-produtos' alt={`Produto ${prodId}`}/>
+                  <p className='Nome'>Produto {prodId}</p>
+                </div>
+              ))
+            }
             <ProdutoVer 
-							id={id}
-							open={open}
-							popupEstado={popupEstado}
-							fecharPopup={fecharPopup}
+              id={id}
+              open={open}
+              popupEstado={popupEstado}
+              fecharPopup={fecharPopup}
+              // TODO: Passar dados do produto selecionado para o popup
             />
-					</div>
-				</div>
-
-				<div className='Listagem'>
-					<div className='texto'>
-						<p>
-							Produtos
-						</p>
-						<ArrowForwardIcon />
-					</div>
-					<div className='org'>
-						{
-							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}
-								onContextMenu={preventContextMenu}>
-									<img src={Fundo} draggable='false' className='img-produtos' />
-									<p className='Nome'>
-										{nomeProduto}
-									</p>
-								</div>
-							))
-						}
-            <ProdutoVer 
-							id={id}
-							open={open}
-							popupEstado={popupEstado}
-							fecharPopup={fecharPopup}
-            />
-					</div>
-				</div>
-				
-				<div className='Listagem'>
-					<div className='texto'>
-						<p>
-							Produtos
-						</p>
-						<ArrowForwardIcon />
-					</div>
-					<div className='org'>
-						{
-							produtos.map((nomeProduto) => (
-								<div className='lj' key={nomeProduto} draggable='false' aria-describedby={id} onClick={abrirPopup}
-								onContextMenu={preventContextMenu}>
-									<img src={Fundo} draggable='false' className='img-produtos' />
-									<p className='Nome'>
-										{nomeProduto}
-									</p>
-								</div>
-							))
-						}
-            <ProdutoVer 
-							id={id}
-							open={open}
-							popupEstado={popupEstado}
-							fecharPopup={fecharPopup}
-            />
-					</div>
-				</div>
-			</div>
-		</>
-	)
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default ConteudoPrincipal
+export default ConteudoPrincipal;
+
