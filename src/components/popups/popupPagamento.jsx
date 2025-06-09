@@ -296,9 +296,9 @@ function PopupPagamento({
                       <p className='sumario-nome-loja'>{store?.nome || `Loja ID: ${storeId}`}</p>
                       {items.map(item => (
                         <div key={item.id} className='sumario-produto-item'>
-                          <span className='sumario-produto-qtd'>{item.quantity}x</span>
-                          <span className='sumario-produto-nome'>{item.nome}</span>
-                          <span className='sumario-produto-preco'>{(item.preco * item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+                          <span className='sumario-produto-qtd'>{item.quantidade}x </span>
+                          <span className='sumario-produto-nome'> {item.nome} </span>
+                          <span className='sumario-produto-preco'>{(item.preco * item.quantidade).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                         </div>
                       ))}
                     </div>

@@ -57,7 +57,7 @@ function ProdutoVer({
   }, [open, user, produto]); // Rerun when these change
 
   const handleAddToCart = () => {
-    if (produto) {
+    if (produto && user) {
       addItemToCart(produto, 1);
       setFeedback(`${produto.nome} adicionado ao carrinho!`);
       setTimeout(() => {
@@ -65,6 +65,7 @@ function ProdutoVer({
         fecharPopup(); 
       }, 1500);
     } else {
+      alert('Você precisa fazer o login para adicionar produtos ao carrinho.');
       setFeedback('Erro ao adicionar produto.');
       setTimeout(() => setFeedback(''), 1500);
     }

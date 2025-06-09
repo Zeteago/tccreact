@@ -17,11 +17,6 @@ function PublicRoute({ children }) {
     return <div>Carregando...</div>; // Ou um spinner/indicador de carregamento
   }
 
-  if (user) {
-    // Redireciona para home se já estiver autenticado
-    return <Navigate to="/" replace />;
-  }
-
   return children;
 }
 

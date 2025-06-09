@@ -123,8 +123,8 @@ function PopupCarrinho({
             {!loadingStores && Object.entries(groupedItems).map(([storeId, items]) => {
               const store = storeDetails[storeId];
               return (
-                <div className="loja-grupo" key={storeId}>
-                  <div className="loja-cabecalho">
+                <div className="loja" key={storeId}>
+                  <div className="icone-conteudo">
                     <img 
                       src={store?.banner_url || Fundo} 
                       alt={store?.nome || 'Loja'} 
@@ -132,10 +132,10 @@ function PopupCarrinho({
                       draggable="false" 
                     />
                     <p className="loja-nome">{store?.nome}</p>
-                    {/* <button className="tres-pontos-loja"><MoreHorizIcon /></button> */}
+                    <button className="tres-pontos"><MoreHorizIcon /></button>
                   </div>
                   {items.map(item => (
-                    <div className="produto-item" key={item.id}>
+                    <div className="conteudo" key={item.id}>
                       {/* <img src={item.imagem_url || Fundo} alt={item.nome} className="produto-imagem" draggable="false" /> */}
                       <div className="produto-detalhes">
                         <p className="produto-nome">{item.nome}</p>
