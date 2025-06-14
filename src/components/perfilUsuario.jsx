@@ -111,6 +111,9 @@ function PerfilUsuario({ trocarAba }) {
   return (
     // Aplicar a classe container principal
     <div className="profile-container"> 
+        <button onClick={() => trocarAba('botoes')} className='voltar'>
+          <ArrowRightIcon />
+        </button>
       <h2>Perfil do Usuário</h2>
       {isEditing ? (
         <form onSubmit={handleUpdateProfile}>

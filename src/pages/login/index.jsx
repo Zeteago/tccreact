@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../AuthContext';
 import RegisterPage from '../register';
-// import './style.css'; // Criar e importar CSS depois
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const { signIn } = useAuth();
 
   const handleLogin = async (e) => {
@@ -26,8 +26,8 @@ function LoginPage() {
     }
   };
 
-  const handleRegister = () => {
-    return RegisterPage();
+  if (showRegister) {
+    return <RegisterPage onVoltar={() => setShowRegister(false)} />;
   }
 
   return (
@@ -61,7 +61,7 @@ function LoginPage() {
         </button>
       </form>
       <p style={{ marginTop: '10px' }}>
-        Não tem uma conta? <button onClick={handleRegister()}>Registre-se</button>
+        Não tem uma conta? <button onClick={() => setShowRegister(true)}>Registre-se</button>
       </p>
     </div>
   );

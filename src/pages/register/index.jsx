@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../AuthContext';
+import { Phone } from '@mui/icons-material';
+import { supabase } from '../../supabaseClient';
 // import './style.css'; // Criar e importar CSS depois
 
 function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [nome, setNome] = useState(''); // Campo adicional para nome
+  const [telefone, setTelefone] = useState('');
+  const [endereco, setEndereco] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
@@ -15,21 +19,35 @@ function RegisterPage() {
     setLoading(true);
     setError(null);
     try {
-      // Incluir o nome nos 'options.data' para ser salvo na tb_cliente
-      const { error } = await signUp({ 
+      const { data, error } = await signUp({ 
         email, 
         password, 
         options: { 
           data: { 
-            Nome: nome 
-            // Adicionar outros campos iniciais se necessário (ex: Endereco, Telefone vazios)
+            Nome: nome,
           } 
         }
       });
       if (error) throw error;
+
+      // Só cria na tb_cliente se o usuário foi criado com sucesso
+      const userId = data?.user?.id;
+      if (userId) {
+        const { error: insertError } = await supabase
+          .from('tb_cliente')
+          .insert([{
+            id_Auth: userId,
+            Nome: nome,
+            Endereco: endereco,
+            Telefone: telefone,
+            Seguindo: [],
+            historico: [],
+          }]);
+        if (insertError) throw insertError;
+      }
     } catch (error) {
       setError(error.message);
-      console.error("Erro ao registrar:", error); // Logar o erro para depuração
+      console.error("Erro ao registrar:", error);
     } finally {
       setLoading(false);
     }
@@ -46,6 +64,26 @@ function RegisterPage() {
             type="text"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="telefone">Telefone:</label>
+          <input
+            id="telefone"
+            type="tel"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="endereco">Endereço:</label>
+          <input
+            id="endereco"
+            type="text"
+            value={endereco}
+            onChange={(e) => setEndereco(e.target.value)}
             required
           />
         </div>
